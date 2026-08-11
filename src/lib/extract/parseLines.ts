@@ -86,7 +86,21 @@ const OCR_NOISE_RE = new RegExp(
   'g',
 );
 
-/** Reine Zahl mit höchstens Punkt/Komma — vermutlich der Wert einer zweizeiligen Zeile, kein Name. */
+/**
+ * Reine Zahl, evtl. mit Währung — toleriert dabei ein kurzes, unvorhersagbares
+ * Fragment am Rand (höchstens zwei Zeichen).
+ *
+ * Tesseract hängt an den Betrag gelegentlich ein einzelnes Fehlzeichen an,
+ * dessen genaue Form sich nicht vorab auflisten lässt — mal ein
+ * Anführungszeichen, mal eine Klammer, mal ein Semikolon oder ein einzelnes
+ * "i", abhängig vom Kompressionsgrad und Schriftrendering des Originalfotos.
+ * Besonders stark komprimierte Bilder (z. B. Fotos, die über WhatsApp
+ * verschickt wurden) erzeugen fast immer irgendein kurzes Fragment dieser
+ * Art — nur nie dasselbe zweimal. Eine Liste bekannter Störzeichen holt
+ * diesen Fall also nie vollständig ein. Ein Rest von höchstens zwei Zeichen
+ * um die eigentliche Zahl herum wird deshalb grundsätzlich toleriert: ein
+ * echter Name oder eine echte zweite Zahl wäre nie so kurz.
+ */
 function isAmountOnly(text: string): boolean {
   const stripped = text
     .trim()
@@ -94,7 +108,13 @@ function isAmountOnly(text: string): boolean {
     .replace(OCR_NOISE_RE, ' ')
     .trim();
   if (!stripped) return false;
-  return /^-?[\d.,\s']+$/.test(stripped) || /^-?[\d.,\s']+\s*[A-Z]{3}$/.test(stripped);
+  if (/^-?[\d.,\s']+$/.test(stripped) || /^-?[\d.,\s']+\s*[A-Z]{3}$/.test(stripped)) return true;
+
+  const amountMatch = /-?\d[\d.,\s']*\d|-?\d/.exec(stripped);
+  if (!amountMatch) return false;
+  const before = stripped.slice(0, amountMatch.index).trim();
+  const after = stripped.slice(amountMatch.index + amountMatch[0].length).trim();
+  return before.length <= 2 && after.length <= 2;
 }
 
 /**
@@ -189,13 +209,16 @@ export function parseLines(lines: RecognizedLine[]): { rows: ExtractedRow[]; war
     // Prüfung würde die eingebettete Zahl fälschlich als Positionswert gelesen
     // und der Name dabei verstümmelt.
     const amountMatch = /-?\d[\d.,\s']*\d|-?\d/.exec(withoutIsin);
+    // Wie in isAmountOnly(): ein Rest von höchstens zwei Zeichen nach der
+    // Zahl gilt als Störfragment, nicht als Namensanfang — "Information
+    // Tech (Acc)" bleibt mit >2 Zeichen zuverlässig ausgeschlossen.
     const amountIsTrailing =
       amountMatch != null &&
       withoutIsin
         .slice(amountMatch.index + amountMatch[0].length)
         .replace(CURRENCY_TOKEN_RE, '')
         .replace(OCR_NOISE_RE, '')
-        .trim() === '';
+        .trim().length <= 2;
     const value = amountIsTrailing ? parseAmount(withoutIsin) : null;
 
     if (value != null && amountMatch) {
