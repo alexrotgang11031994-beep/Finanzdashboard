@@ -28,9 +28,71 @@ function isNoiseLine(text: string): boolean {
   return t.length < 2 || NOISE_LINES.has(t);
 }
 
+/**
+ * Vereinzeltes Satzzeichen am Zeilenrand, das Tesseract manchmal zusätzlich
+ * zum eigentlichen Text erkennt — ein Kompressionsartefakt am Bildrand, ein
+ * verschmiertes Icon-Fragment, ein Anführungszeichen aus einem Nachbar-
+ * Element. Trennt es weder Zahl noch Wort, ist es kein Inhalt.
+ *
+ * Die runden Klammern gehören aus demselben Grund dazu wie das Prozentzeichen
+ * oben: bei einem Namen, der mit "(Acc)" oder "(ADR)" endet, hängt Tesseract
+ * die schließende Klammer regelmäßig an den Betrag der nächsten Zeile an
+ * ("8.202 € )" statt "8.202 €") — vermutlich, weil sie geometrisch näher am
+ * Betrag als am Rest des Namens liegt. Ohne diese Toleranz gilt die Zeile
+ * nicht mehr als reiner Betrag, die Paarung mit dem Namen schlägt fehl, und
+ * die ganze Position verschwindet spurlos statt fehlerhaft aufzufallen.
+ */
+// Aus numerischen Codepunkten gebaut statt eines Zeichenklassen-Literals:
+// links- und rechtsseitige typografische Anführungszeichen sehen sich beim
+// Eintippen zum Verwechseln ähnlich, und ein falscher Codepunkt in einem
+// Literal läuft still ins Leere, ohne beim Lesen aufzufallen — die ersten
+// beiden Versuche dieser Zeile trafen genau das. Zahlen sind eindeutig.
+const OCR_NOISE_CODEPOINTS = [
+  0x2018, // '  LEFT SINGLE QUOTATION MARK
+  0x2019, // '  RIGHT SINGLE QUOTATION MARK
+  0x201c, // "  LEFT DOUBLE QUOTATION MARK
+  0x201d, // "  RIGHT DOUBLE QUOTATION MARK
+  0x0027, // '  APOSTROPHE
+  0x0022, // "  QUOTATION MARK
+  0x0060, // `  GRAVE ACCENT
+  0x00b4, // ´  ACUTE ACCENT
+  0x002e, // .  FULL STOP
+  0x002c, // ,  COMMA
+  0x003b, // ;  SEMICOLON
+  0x003a, // :  COLON
+  0x0021, // !  EXCLAMATION MARK
+  0x003f, // ?  QUESTION MARK
+  // Tesseract hängt am Ende einer Betragszeile beobachtbar unterschiedliche
+  // Klammer-Glyphen an — mal "(Acc)" als ")", mal als "}" — vermutlich je nach
+  // Kantenglättung des jeweiligen Zeichens im Ausgangsbild. Statt einzelne
+  // Fälle nachzutragen, sind alle gängigen Klammertypen pauschal toleriert.
+  0x0028, // (  LEFT PARENTHESIS
+  0x0029, // )  RIGHT PARENTHESIS
+  0x005b, // [  LEFT SQUARE BRACKET
+  0x005d, // ]  RIGHT SQUARE BRACKET
+  0x007b, // {  LEFT CURLY BRACKET
+  0x007d, // }  RIGHT CURLY BRACKET
+];
+// Die Zeichenklasse wird aus \u-Escape-SEQUENZEN im Regex-Quelltext gebaut,
+// nicht aus vorab per String.fromCharCode() aufgelösten Zeichen. Grund: der
+// Codepunkt für "]" schließt eine bereits per String.fromCharCode()
+// aufgelöste Zeichenklasse vorzeitig, weil er dort als Metazeichen ankommt —
+// alles danach (einschließlich der geschweiften Klammern) landet als kaputte
+// Syntax außerhalb der Klasse, ohne dass new RegExp() einen Fehler wirft.
+// \u-Escapes bleiben dagegen für den Regex-Parser erkennbare Escapes, die nie
+// als Metazeichen interpretiert werden, unabhängig vom Zielzeichen.
+const OCR_NOISE_RE = new RegExp(
+  `[${OCR_NOISE_CODEPOINTS.map((cp) => `\\u${cp.toString(16).padStart(4, '0')}`).join('')}]`,
+  'g',
+);
+
 /** Reine Zahl mit höchstens Punkt/Komma — vermutlich der Wert einer zweizeiligen Zeile, kein Name. */
 function isAmountOnly(text: string): boolean {
-  const stripped = text.trim().replace(/[€$£₣¥]/g, '').trim();
+  const stripped = text
+    .trim()
+    .replace(/[€$£₣¥]/g, '')
+    .replace(OCR_NOISE_RE, ' ')
+    .trim();
   if (!stripped) return false;
   return /^-?[\d.,\s']+$/.test(stripped) || /^-?[\d.,\s']+\s*[A-Z]{3}$/.test(stripped);
 }
@@ -119,15 +181,27 @@ export function parseLines(lines: RecognizedLine[]): { rows: ExtractedRow[]; war
 
     const { isin, rest: withoutIsin } = extractIsin(withoutPercent);
     const currency = parseCurrency(withoutIsin);
-    const value = parseAmount(withoutIsin);
 
-    if (value != null) {
+    // Eine Zahl gilt nur als Betrag, wenn ihr in der Zeile nichts außer
+    // einem Währungssymbol/-code folgt. Bei einem Namen wie "S&P 500
+    // Information Tech" oder "WTI Crude Oil 3x Lev" steht die Zahl mitten im
+    // Namen — der echte Betrag steht dann auf der nächsten Zeile. Ohne diese
+    // Prüfung würde die eingebettete Zahl fälschlich als Positionswert gelesen
+    // und der Name dabei verstümmelt.
+    const amountMatch = /-?\d[\d.,\s']*\d|-?\d/.exec(withoutIsin);
+    const amountIsTrailing =
+      amountMatch != null &&
+      withoutIsin
+        .slice(amountMatch.index + amountMatch[0].length)
+        .replace(CURRENCY_TOKEN_RE, '')
+        .replace(OCR_NOISE_RE, '')
+        .trim() === '';
+    const value = amountIsTrailing ? parseAmount(withoutIsin) : null;
+
+    if (value != null && amountMatch) {
       // Einzeilig: Betrag steckt in derselben Zeile wie der Name.
-      const amountMatch = /-?\d[\d.,\s']*\d|-?\d/.exec(withoutIsin);
       const name = cleanName(
-        amountMatch
-          ? withoutIsin.slice(0, amountMatch.index) + withoutIsin.slice(amountMatch.index + amountMatch[0].length)
-          : withoutIsin,
+        withoutIsin.slice(0, amountMatch.index) + withoutIsin.slice(amountMatch.index + amountMatch[0].length),
       );
       if (!name || /^\d+$/.test(name)) continue;
 
