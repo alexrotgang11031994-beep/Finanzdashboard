@@ -1,37 +1,10 @@
 import { useState, type FormEvent } from 'react';
+import { isValidIsin } from '../../lib/isin';
 import type { ClusterDef, Position } from '../../lib/types';
 import type { PositionInput } from '../../lib/store';
 
 const TYPES = ['Aktie', 'ETF', 'ETC', 'Anleihe', 'Fonds', 'Krypto', 'Sonstiges'];
 const CURRENCIES = ['EUR', 'USD', 'CHF', 'GBP', 'DKK', 'CAD', 'SEK', 'NOK'];
-
-/**
- * ISIN-Prüfziffer nach ISO 6166 (Luhn über die alphanumerisch expandierte
- * Zeichenkette). Fängt Tippfehler ab, bevor sie in der Datenbank landen —
- * und wird beim Foto-Import dieselbe Prüfung leisten.
- */
-export function isValidIsin(isin: string): boolean {
-  const s = isin.trim().toUpperCase();
-  if (!/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(s)) return false;
-
-  const digits = [...s]
-    .map((ch) => (/[A-Z]/.test(ch) ? String(ch.charCodeAt(0) - 55) : ch))
-    .join('');
-
-  let sum = 0;
-  let double = true; // von rechts: die vorletzte Stelle wird zuerst verdoppelt
-  for (let i = digits.length - 2; i >= 0; i--) {
-    let d = Number(digits[i]);
-    if (double) {
-      d *= 2;
-      if (d > 9) d -= 9;
-    }
-    sum += d;
-    double = !double;
-  }
-  const check = (10 - (sum % 10)) % 10;
-  return check === Number(digits[digits.length - 1]);
-}
 
 interface Props {
   clusters: ClusterDef[];

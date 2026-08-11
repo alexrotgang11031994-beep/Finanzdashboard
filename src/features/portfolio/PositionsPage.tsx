@@ -13,6 +13,7 @@ import { getStore } from '../../lib/store';
 import type { PortfolioData } from '../../lib/queries';
 import type { Position } from '../../lib/types';
 import { PositionForm } from './PositionForm';
+import { PhotoImportDialog } from './PhotoImportDialog';
 
 const columnHelper = createColumnHelper<Position>();
 
@@ -31,6 +32,7 @@ export function PositionsPage({
   const [cluster, setCluster] = useState<string | null>(null);
   const [sorting, setSorting] = useState<SortingState>([{ id: 'value', desc: true }]);
   const [editing, setEditing] = useState<Position | 'new' | null>(null);
+  const [photoImport, setPhotoImport] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const clusterLabels = useMemo(() => new Map(clusters.map((c) => [c.key, c])), [clusters]);
@@ -158,13 +160,29 @@ export function PositionsPage({
     );
   }
 
+  if (photoImport) {
+    return (
+      <PhotoImportDialog
+        clusters={clusters}
+        existingPositions={positions}
+        onClose={() => setPhotoImport(false)}
+        onImported={reload}
+      />
+    );
+  }
+
   return (
     <section className="card">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
         <h2>Positionen</h2>
-        <button type="button" onClick={() => setEditing('new')}>
-          Position hinzufügen
-        </button>
+        <div className="btnrow" style={{ marginTop: 0 }}>
+          <button type="button" className="ghost" onClick={() => setPhotoImport(true)}>
+            Per Foto importieren
+          </button>
+          <button type="button" onClick={() => setEditing('new')}>
+            Position hinzufügen
+          </button>
+        </div>
       </div>
 
       {error && (
@@ -177,8 +195,8 @@ export function PositionsPage({
         <div className="empty">
           <p>Noch keine Positionen erfasst.</p>
           <p className="small">
-            Über „Position hinzufügen" einzeln anlegen — oder unter „Daten" die Demo-Daten laden,
-            um das Dashboard erst einmal gefüllt zu sehen.
+            Über „Position hinzufügen" einzeln anlegen, per Foto importieren — oder unter „Daten"
+            die Demo-Daten laden, um das Dashboard erst einmal gefüllt zu sehen.
           </p>
         </div>
       ) : (
