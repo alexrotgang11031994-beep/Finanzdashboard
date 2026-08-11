@@ -72,6 +72,12 @@ export function PhotoImportDialog({
   const [warnings, setWarnings] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  // Rohtext je Foto — sichtbar gemacht, damit sich unterscheiden lässt, ob
+  // Tesseract überhaupt Text gefunden hat (dann liegt es an der Zeilen-
+  // Heuristik) oder gar nichts (dann an Bild, Kontrast oder daran, dass das
+  // Sprachmodell nicht vollständig geladen hat). Ohne diese Anzeige war diese
+  // Unterscheidung von außen nicht möglich.
+  const [rawTexts, setRawTexts] = useState<{ file: string; text: string }[]>([]);
   const fileInput = useRef<HTMLInputElement>(null);
   const addMoreInput = useRef<HTMLInputElement>(null);
 
@@ -96,6 +102,7 @@ export function PhotoImportDialog({
     setError(null);
     const collected: DraftRow[] = [];
     const collectedWarnings: string[] = [];
+    const collectedRawTexts: { file: string; text: string }[] = [];
     const startIndex = mode === 'append' ? Date.now() : 0;
 
     try {
@@ -107,6 +114,7 @@ export function PhotoImportDialog({
           setFileProgress({ index: i, total: files.length, withinFile: fraction }),
         );
         collected.push(...toDrafts(result.rows, startIndex + i));
+        collectedRawTexts.push({ file: file.name, text: result.rawText });
         if (files.length > 1 && result.rows.length === 0) {
           collectedWarnings.push(`Foto ${i + 1} von ${files.length}: keine Positionen erkannt.`);
         } else {
@@ -116,6 +124,7 @@ export function PhotoImportDialog({
 
       setRows((prev) => flagDuplicates(mode === 'append' ? [...prev, ...collected] : collected));
       setWarnings(collectedWarnings);
+      setRawTexts((prev) => (mode === 'append' ? [...prev, ...collectedRawTexts] : collectedRawTexts));
       setPhase('review');
     } catch (err) {
       setError(
@@ -282,6 +291,38 @@ export function PhotoImportDialog({
               {w}
             </p>
           ))}
+
+          {rows.length === 0 && rawTexts.length > 0 && (
+            <div className="notice small" style={{ marginTop: 10 }}>
+              <p>
+                <strong>Zur Fehlersuche — was die Texterkennung tatsächlich gelesen hat:</strong>
+              </p>
+              {rawTexts.map((rt) => (
+                <div key={rt.file} style={{ marginTop: 8 }}>
+                  <div className="mute">{rt.file}:</div>
+                  {rt.text.trim() ? (
+                    <pre
+                      style={{
+                        whiteSpace: 'pre-wrap',
+                        wordBreak: 'break-word',
+                        fontFamily: 'var(--mono)',
+                        fontSize: '0.82em',
+                        margin: '4px 0 0',
+                      }}
+                    >
+                      {rt.text}
+                    </pre>
+                  ) : (
+                    <p className="error" style={{ margin: '4px 0 0' }}>
+                      Kein Zeichen erkannt — leeres Ergebnis, kein Ableseproblem. Das deutet auf
+                      Bild, Kontrast oder einen technischen Fehler bei der Texterkennung selbst
+                      hin, nicht auf die Zeilenzuordnung.
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="tblwrap">
             <table>
