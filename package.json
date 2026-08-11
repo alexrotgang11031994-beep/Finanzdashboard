@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "python3 -m http.server 8080",
+    "dev": "npx http-server -p 8080 -c-1 -o",
     "signals": "node scripts/fetch-signals.mjs",
     "check": "node --check src/app.js && node --check scripts/fetch-signals.mjs"
   },
