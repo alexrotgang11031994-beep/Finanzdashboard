@@ -22,8 +22,8 @@ export function OverviewPage({ data }: { data: PortfolioData }) {
       <div className="empty">
         <p>Noch keine Positionen erfasst.</p>
         <p className="small">
-          Depot per Foto anlegen oder Positionen manuell eintragen — beides kommt in den nächsten
-          Ausbaustufen.
+          Unter <strong>Positionen</strong> einzeln anlegen, oder unter <strong>Daten</strong> die
+          Beispieldaten laden. Der Import per Foto kommt in der nächsten Ausbaustufe.
         </p>
       </div>
     );

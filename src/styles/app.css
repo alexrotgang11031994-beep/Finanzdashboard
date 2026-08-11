@@ -326,6 +326,23 @@ button.link {
   cursor: pointer;
   color: var(--accent);
   text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+
+@media (max-width: 560px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+input[aria-invalid='true'] {
+  border-color: var(--warn);
 }
 
 .btnrow {

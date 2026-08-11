@@ -4,16 +4,22 @@ import { LoginPage } from './features/auth/LoginPage';
 import { ThemeToggle } from './features/theme/ThemeProvider';
 import { OverviewPage } from './features/portfolio/OverviewPage';
 import { PositionsPage } from './features/portfolio/PositionsPage';
+import { DataPage } from './features/settings/DataPage';
 import { usePortfolioData } from './lib/queries';
+import { storeKind } from './lib/store';
 import { eur } from './lib/format';
 
 const TABS = [
   { to: '/', label: 'Übersicht', end: true },
   { to: '/positionen', label: 'Positionen', end: false },
+  { to: '/daten', label: 'Daten', end: false },
 ];
 
 export function App() {
-  const { session, loading, user, signOut } = useAuth();
+  const { session, loading, user, signOut, required } = useAuth();
+
+  // Im lokalen Modus gibt es keine Anmeldung — direkt ins Dashboard.
+  if (!required) return <Dashboard label="Lokaler Modus" onSignOut={null} />;
 
   if (loading) {
     return (
@@ -25,18 +31,24 @@ export function App() {
 
   if (!session) return <LoginPage />;
 
-  return <Dashboard email={user?.email ?? ''} onSignOut={signOut} />;
+  return <Dashboard label={user?.email ?? ''} onSignOut={signOut} />;
 }
 
-function Dashboard({ email, onSignOut }: { email: string; onSignOut: () => Promise<void> }) {
-  const { data, loading, error } = usePortfolioData();
+function Dashboard({
+  label,
+  onSignOut,
+}: {
+  label: string;
+  onSignOut: (() => Promise<void>) | null;
+}) {
+  const { data, loading, error, reload } = usePortfolioData();
 
   return (
     <div className="shell">
       <header className="topbar">
         <div className="grow">
           <h1>Finanzdashboard</h1>
-          <p className="mute small">{email}</p>
+          <p className="mute small">{label}</p>
         </div>
         {data && (
           <div className="right">
@@ -49,15 +61,30 @@ function Dashboard({ email, onSignOut }: { email: string; onSignOut: () => Promi
         )}
         <div className="btnrow" style={{ marginTop: 0 }}>
           <ThemeToggle />
-          <button type="button" className="ghost small" onClick={() => void onSignOut()}>
-            Abmelden
-          </button>
+          {onSignOut && (
+            <button type="button" className="ghost small" onClick={() => void onSignOut()}>
+              Abmelden
+            </button>
+          )}
         </div>
       </header>
 
+      {storeKind === 'local' && (
+        <p className="notice small" style={{ marginTop: 16 }}>
+          Die Daten liegen ausschließlich in diesem Browser und verlassen das Gerät nicht. Kein
+          Konto, kein Server. Unter <strong>Daten</strong> gibt es den Export — das ist hier die
+          einzige Sicherung.
+        </p>
+      )}
+
       <nav className="tabs">
         {TABS.map((t) => (
-          <NavLink key={t.to} to={t.to} end={t.end} className={({ isActive }) => (isActive ? 'on' : '')}>
+          <NavLink
+            key={t.to}
+            to={t.to}
+            end={t.end}
+            className={({ isActive }) => (isActive ? 'on' : '')}
+          >
             {t.label}
           </NavLink>
         ))}
@@ -70,16 +97,14 @@ function Dashboard({ email, onSignOut }: { email: string; onSignOut: () => Promi
           <p className="error" role="alert">
             {error}
           </p>
-          <p className="mute small">
-            Häufigste Ursache: Die Migration in supabase/migrations/ ist noch nicht eingespielt.
-          </p>
         </div>
       )}
 
       {data && (
         <Routes>
           <Route path="/" element={<OverviewPage data={data} />} />
-          <Route path="/positionen" element={<PositionsPage data={data} />} />
+          <Route path="/positionen" element={<PositionsPage data={data} reload={reload} />} />
+          <Route path="/daten" element={<DataPage data={data} reload={reload} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       )}

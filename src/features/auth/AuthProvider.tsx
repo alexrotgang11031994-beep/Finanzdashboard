@@ -1,12 +1,14 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import type { Session, User } from '@supabase/supabase-js';
-import { supabase } from '../../lib/supabase';
+import { getSupabase, isSupabaseConfigured } from '../../lib/supabase';
 
 interface AuthValue {
   session: Session | null;
   user: User | null;
   /** true, solange die bestehende Sitzung noch geprüft wird. */
   loading: boolean;
+  /** false im lokalen Modus — dort gibt es keine Anmeldung. */
+  required: boolean;
   signInWithEmail: (email: string) => Promise<void>;
   signOut: () => Promise<void>;
 }
@@ -15,18 +17,22 @@ const AuthContext = createContext<AuthValue | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+  // Im lokalen Modus gibt es nichts zu prüfen, also nie ein Ladezustand.
+  const [loading, setLoading] = useState(isSupabaseConfigured);
 
   useEffect(() => {
-    let active = true;
+    if (!isSupabaseConfigured) return;
 
-    supabase.auth.getSession().then(({ data }) => {
+    let active = true;
+    const auth = getSupabase().auth;
+
+    void auth.getSession().then(({ data }) => {
       if (!active) return;
       setSession(data.session);
       setLoading(false);
     });
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, next) => {
+    const { data: sub } = auth.onAuthStateChange((_event, next) => {
       setSession(next);
       setLoading(false);
     });
@@ -41,15 +47,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     session,
     user: session?.user ?? null,
     loading,
+    required: isSupabaseConfigured,
     async signInWithEmail(email) {
-      const { error } = await supabase.auth.signInWithOtp({
+      const { error } = await getSupabase().auth.signInWithOtp({
         email,
         options: { emailRedirectTo: `${window.location.origin}${import.meta.env.BASE_URL}` },
       });
       if (error) throw error;
     },
     async signOut() {
-      const { error } = await supabase.auth.signOut();
+      const { error } = await getSupabase().auth.signOut();
       if (error) throw error;
     },
   };
