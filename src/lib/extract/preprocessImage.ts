@@ -1,11 +1,18 @@
 /**
  * Bereitet ein Foto für die Texterkennung vor: verkleinert übergroße Bilder,
- * wandelt in Graustufen und spreizt den Kontrast linear.
+ * wandelt in Graustufen, spreizt den Kontrast linear und dreht überwiegend
+ * dunkle Bilder um.
  *
  * Handyfotos von Bildschirmen sind oft zu groß (verlangsamt Tesseract ohne
  * Genauigkeitsgewinn) und haben durch Spiegelungen einen flachen
  * Kontrastbereich. Beides kostet Erkennungsqualität, bevor die Texterkennung
  * überhaupt beginnt.
+ *
+ * Die Umkehrung dunkler Bilder ist kein Kosmetikschritt: Tesseract ist auf
+ * dunklen Text auf hellem Grund trainiert. Ein Depot-Screenshot im
+ * Dunkelmodus einer Broker-App — heller Text auf schwarzem Grund — liefert
+ * unbehandelt spürbar schlechtere Trefferquoten als dieselbe Aufnahme nach
+ * der Umkehrung.
  */
 export async function preprocessImage(file: Blob): Promise<HTMLCanvasElement> {
   const bitmap = await createImageBitmap(file);
@@ -29,6 +36,7 @@ export async function preprocessImage(file: Blob): Promise<HTMLCanvasElement> {
 
   let min = 255;
   let max = 0;
+  let sum = 0;
   for (let i = 0, p = 0; i < imageData.data.length; i += 4, p++) {
     const r = imageData.data[i] ?? 0;
     const g = imageData.data[i + 1] ?? 0;
@@ -36,13 +44,19 @@ export async function preprocessImage(file: Blob): Promise<HTMLCanvasElement> {
     // Standard-Luminanzgewichtung, keine Bibliothek nötig für drei Zeilen Mathematik.
     const v = 0.299 * r + 0.587 * g + 0.114 * b;
     gray[p] = v;
+    sum += v;
     if (v < min) min = v;
     if (v > max) max = v;
   }
 
+  // Mittelwert unter der Bildmitte heißt: überwiegend dunkler Hintergrund,
+  // wie bei den meisten Dunkelmodus-Oberflächen von Broker-Apps.
+  const invert = sum / gray.length < 128;
+
   const range = max - min || 1;
   for (let i = 0, p = 0; i < imageData.data.length; i += 4, p++) {
-    const stretched = (((gray[p] ?? 0) - min) / range) * 255;
+    let stretched = (((gray[p] ?? 0) - min) / range) * 255;
+    if (invert) stretched = 255 - stretched;
     imageData.data[i] = stretched;
     imageData.data[i + 1] = stretched;
     imageData.data[i + 2] = stretched;

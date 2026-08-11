@@ -35,6 +35,35 @@ function isAmountOnly(text: string): boolean {
   return /^-?[\d.,\s']+$/.test(stripped) || /^-?[\d.,\s']+\s*[A-Z]{3}$/.test(stripped);
 }
 
+/**
+ * Reine Prozentzahl — z. B. die Tagesperformance neben einer Position.
+ *
+ * Viele Broker-Apps zeigen pro Zeile Name, Betrag und eine Prozentzahl in
+ * getrennten Textblöcken. Ohne diese Erkennung liest der Parser "1,86 %" als
+ * eigenständigen Betrag von 1,86 und baut daraus eine Phantomposition mit dem
+ * Namen "%".
+ */
+function isPercentOnly(text: string): boolean {
+  return /^[+-]?[\d.,\s]+\s*%$/.test(text.trim());
+}
+
+const TRAILING_PERCENT_RE = /[+-]?[\d.,\s]+\s*%\s*$/;
+
+/**
+ * Entfernt eine angehängte Prozentzahl am Zeilenende, auch wenn davor noch
+ * Name oder Betrag stehen.
+ *
+ * Tesseract gruppiert Zeilen nach vertikaler Position, nicht nach Spalte.
+ * Steht die Tagesperformance in der Bildmitte zwischen Name und Betrag,
+ * landet sie oft auf derselben erkannten Zeile wie der Name — "SAP 1,86 %"
+ * statt zwei getrennter Zeilen. Ohne diesen Schritt liest parseAmount() die
+ * Prozentzahl als Geldbetrag und der eigentliche Wert in der nächsten Zeile
+ * wird nie zugeordnet.
+ */
+function stripTrailingPercent(text: string): string {
+  return text.replace(TRAILING_PERCENT_RE, '').trim();
+}
+
 function extractIsin(text: string): { isin: string | null; rest: string } {
   const match = ISIN_RE.exec(text);
   if (!match) return { isin: null, rest: text };
@@ -82,9 +111,13 @@ export function parseLines(lines: RecognizedLine[]): { rows: ExtractedRow[]; war
     const line = lines[i];
     if (!line) continue;
     const raw = line.text.trim();
-    if (isNoiseLine(raw) || isAmountOnly(raw)) continue;
+    if (isPercentOnly(raw)) continue;
+    // Für die Erkennung selbst wird eine angehängte Prozentzahl entfernt;
+    // "raw" bleibt der Originaltext für die Anzeige im Prüfdialog.
+    const withoutPercent = stripTrailingPercent(raw);
+    if (isNoiseLine(withoutPercent) || isAmountOnly(withoutPercent)) continue;
 
-    const { isin, rest: withoutIsin } = extractIsin(raw);
+    const { isin, rest: withoutIsin } = extractIsin(withoutPercent);
     const currency = parseCurrency(withoutIsin);
     const value = parseAmount(withoutIsin);
 
@@ -111,17 +144,20 @@ export function parseLines(lines: RecognizedLine[]): { rows: ExtractedRow[]; war
       continue;
     }
 
-    // Zweizeilig: diese Zeile ist nur ein Name, die nächste nur ein Betrag.
+    // Zweizeilig: diese Zeile ist nur ein Name, die nächste nur ein Betrag —
+    // auch wenn an den Betrag noch eine Prozentzahl angehängt ist
+    // ("1.406 € 1,86 %" statt zweier getrennter Zeilen).
     const next = lines[i + 1];
-    if (next && isAmountOnly(next.text) && !isNoiseLine(next.text)) {
-      const nextValue = parseAmount(next.text);
+    const nextWithoutPercent = next ? stripTrailingPercent(next.text) : null;
+    if (next && nextWithoutPercent && isAmountOnly(nextWithoutPercent) && !isNoiseLine(nextWithoutPercent)) {
+      const nextValue = parseAmount(nextWithoutPercent);
       if (nextValue != null) {
         const name = cleanName(withoutIsin);
         if (name && !/^\d+$/.test(name)) {
           rows.push({
             name,
             value: nextValue,
-            currency: parseCurrency(next.text),
+            currency: parseCurrency(nextWithoutPercent),
             isin,
             ticker: null,
             quantity: null,
