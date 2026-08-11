@@ -1,0 +1,210 @@
+{
+ "asOf": "2026-08-09",
+ "currency": "EUR",
+ "note": "Wochenplaene mit 52/12 = 4,333 Ausfuehrungen pro Monat gerechnet.",
+ "plans": [
+  {
+   "name": "Coca-Cola",
+   "amount": 10,
+   "interval": "weekly",
+   "cluster": "DEFE",
+   "monthly": 43.33
+  },
+  {
+   "name": "ASML",
+   "amount": 50,
+   "interval": "weekly",
+   "cluster": "SEMI",
+   "monthly": 216.67
+  },
+  {
+   "name": "Siemens Energy",
+   "amount": 10,
+   "interval": "weekly",
+   "cluster": "INFRA",
+   "monthly": 43.33
+  },
+  {
+   "name": "Broadcom",
+   "amount": 10,
+   "interval": "weekly",
+   "cluster": "SEMI",
+   "monthly": 43.33
+  },
+  {
+   "name": "Physical Gold",
+   "amount": 25,
+   "interval": "weekly",
+   "cluster": "ROHS",
+   "monthly": 108.33
+  },
+  {
+   "name": "Apple",
+   "amount": 10,
+   "interval": "weekly",
+   "cluster": "SOFT",
+   "monthly": 43.33
+  },
+  {
+   "name": "AMD",
+   "amount": 10,
+   "interval": "weekly",
+   "cluster": "SEMI",
+   "monthly": 43.33
+  },
+  {
+   "name": "Tesla",
+   "amount": 20,
+   "interval": "weekly",
+   "cluster": "PHYS",
+   "monthly": 86.67
+  },
+  {
+   "name": "Space Innovators",
+   "amount": 25,
+   "interval": "weekly",
+   "cluster": "SPEK",
+   "monthly": 108.33
+  },
+  {
+   "name": "Allianz",
+   "amount": 15,
+   "interval": "weekly",
+   "cluster": "DEFE",
+   "monthly": 65.0
+  },
+  {
+   "name": "Intel",
+   "amount": 50,
+   "interval": "weekly",
+   "cluster": "SEMI",
+   "monthly": 216.67
+  },
+  {
+   "name": "Dominion Energy",
+   "amount": 10,
+   "interval": "weekly",
+   "cluster": "INFRA",
+   "monthly": 43.33
+  },
+  {
+   "name": "Physical Platinum",
+   "amount": 25,
+   "interval": "weekly",
+   "cluster": "ROHS",
+   "monthly": 108.33
+  },
+  {
+   "name": "Uranium",
+   "amount": 15,
+   "interval": "semimonthly",
+   "cluster": "INFRA",
+   "monthly": 30
+  },
+  {
+   "name": "Muenchener Rueck",
+   "amount": 20,
+   "interval": "semimonthly",
+   "cluster": "DEFE",
+   "monthly": 40
+  },
+  {
+   "name": "Xometry",
+   "amount": 10,
+   "interval": "semimonthly",
+   "cluster": "PHYS",
+   "monthly": 20
+  },
+  {
+   "name": "Caterpillar",
+   "amount": 20,
+   "interval": "semimonthly",
+   "cluster": "INFRA",
+   "monthly": 40
+  },
+  {
+   "name": "Alphabet (A)",
+   "amount": 30,
+   "interval": "semimonthly",
+   "cluster": "SOFT",
+   "monthly": 60
+  },
+  {
+   "name": "Microsoft",
+   "amount": 20,
+   "interval": "semimonthly",
+   "cluster": "SOFT",
+   "monthly": 40
+  },
+  {
+   "name": "Siemens",
+   "amount": 50,
+   "interval": "monthly",
+   "cluster": "PHYS",
+   "monthly": 50
+  },
+  {
+   "name": "Deutsche Telekom",
+   "amount": 50,
+   "interval": "monthly",
+   "cluster": "DEFE",
+   "monthly": 50
+  },
+  {
+   "name": "Amazon.com",
+   "amount": 15,
+   "interval": "monthly",
+   "cluster": "SOFT",
+   "monthly": 15
+  },
+  {
+   "name": "TSMC (ADR)",
+   "amount": 25,
+   "interval": "monthly",
+   "cluster": "SEMI",
+   "monthly": 25
+  },
+  {
+   "name": "AI & Big Data ETF",
+   "amount": 100,
+   "interval": "monthly",
+   "cluster": "SEMI",
+   "monthly": 100
+  },
+  {
+   "name": "Quantum Computing ETF",
+   "amount": 50,
+   "interval": "monthly",
+   "cluster": "SPEK",
+   "monthly": 50
+  },
+  {
+   "name": "NVIDIA",
+   "amount": 25,
+   "interval": "monthly",
+   "cluster": "SEMI",
+   "monthly": 25
+  },
+  {
+   "name": "Core MSCI World",
+   "amount": 10,
+   "interval": "monthly",
+   "cluster": "KERN",
+   "monthly": 10
+  },
+  {
+   "name": "Semiconductor ETF",
+   "amount": 100,
+   "interval": "monthly",
+   "cluster": "SEMI",
+   "monthly": 100
+  },
+  {
+   "name": "Physical Silver",
+   "amount": 50,
+   "interval": "monthly",
+   "cluster": "ROHS",
+   "monthly": 50
+  }
+ ]
+}

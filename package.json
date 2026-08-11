@@ -1,0 +1,13 @@
+{
+  "name": "investmentstratege",
+  "version": "1.0.0",
+  "description": "Investmentstratege - Portfolio, Sparplaene und Signalquellen. Statisch, ohne Build-Schritt.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "signals": "node scripts/fetch-signals.mjs",
+    "check": "node --check src/app.js && node --check scripts/fetch-signals.mjs"
+  },
+  "license": "MIT"
+}

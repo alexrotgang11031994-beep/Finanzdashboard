@@ -1,0 +1,38 @@
+name: Signale aktualisieren
+
+on:
+  schedule:
+    # Werktags 06:15 UTC. Cron laeuft in UTC, nicht in Ortszeit.
+    - cron: '15 6 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Signale holen
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          QUIVER_API_KEY: ${{ secrets.QUIVER_API_KEY }}
+        run: node scripts/fetch-signals.mjs
+
+      - name: Aenderungen committen
+        run: |
+          git config user.name  "signals-bot"
+          git config user.email "signals-bot@users.noreply.github.com"
+          git add src/data/signals.json
+          if git diff --staged --quiet; then
+            echo "Keine Aenderungen."
+          else
+            git commit -m "chore: Signale $(date -u +%Y-%m-%d)"
+            git push
+          fi
