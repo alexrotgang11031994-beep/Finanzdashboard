@@ -6,6 +6,7 @@ import { OverviewPage } from './features/portfolio/OverviewPage';
 import { PositionsPage } from './features/portfolio/PositionsPage';
 import { SavingsPage } from './features/portfolio/SavingsPage';
 import { PerformancePage } from './features/portfolio/PerformancePage';
+import { SignalsPage } from './features/signals/SignalsPage';
 import { DataPage } from './features/settings/DataPage';
 import { usePortfolioData } from './lib/queries';
 import { storeKind } from './lib/store';
@@ -16,6 +17,7 @@ const TABS = [
   { to: '/positionen', label: 'Positionen', end: false },
   { to: '/sparplaene', label: 'Sparpläne', end: false },
   { to: '/entwicklung', label: 'Entwicklung', end: false },
+  { to: '/signale', label: 'Signale', end: false },
   { to: '/daten', label: 'Daten', end: false },
 ];
 
@@ -110,6 +112,8 @@ function Dashboard({
           <Route path="/positionen" element={<PositionsPage data={data} reload={reload} />} />
           <Route path="/sparplaene" element={<SavingsPage data={data} reload={reload} />} />
           <Route path="/entwicklung" element={<PerformancePage data={data} reload={reload} />} />
+          {/* Bekommt bewusst keine Depotdaten — siehe docs/RECHTLICHES.md. */}
+          <Route path="/signale" element={<SignalsPage />} />
           <Route path="/daten" element={<DataPage data={data} reload={reload} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

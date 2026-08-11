@@ -335,6 +335,64 @@ button.link {
   gap: 0 14px;
 }
 
+/* ------------------------------------------------------------ Signalliste */
+
+.feed,
+.srclist {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.sig,
+.srclist li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sig:last-child,
+.srclist li:last-child {
+  border-bottom: 0;
+}
+
+.sig-meta,
+.src-h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+
+.sig-src {
+  font-family: var(--mono);
+  color: var(--ink-soft);
+}
+
+.sig-title {
+  margin-top: 4px;
+}
+
+.tier {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid currentcolor;
+}
+
+.tier.public {
+  color: var(--accent);
+}
+.tier.licensed {
+  color: var(--caution);
+}
+.tier.linkout {
+  color: var(--mute);
+}
+
 .chartwrap {
   margin: 14px 0;
 }
