@@ -335,6 +335,16 @@ button.link {
   gap: 0 14px;
 }
 
+.chartwrap {
+  margin: 14px 0;
+}
+
+.chartwrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 560px) {
   .grid2 {
     grid-template-columns: 1fr;

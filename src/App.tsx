@@ -4,6 +4,8 @@ import { LoginPage } from './features/auth/LoginPage';
 import { ThemeToggle } from './features/theme/ThemeProvider';
 import { OverviewPage } from './features/portfolio/OverviewPage';
 import { PositionsPage } from './features/portfolio/PositionsPage';
+import { SavingsPage } from './features/portfolio/SavingsPage';
+import { PerformancePage } from './features/portfolio/PerformancePage';
 import { DataPage } from './features/settings/DataPage';
 import { usePortfolioData } from './lib/queries';
 import { storeKind } from './lib/store';
@@ -12,6 +14,8 @@ import { eur } from './lib/format';
 const TABS = [
   { to: '/', label: 'Übersicht', end: true },
   { to: '/positionen', label: 'Positionen', end: false },
+  { to: '/sparplaene', label: 'Sparpläne', end: false },
+  { to: '/entwicklung', label: 'Entwicklung', end: false },
   { to: '/daten', label: 'Daten', end: false },
 ];
 
@@ -104,6 +108,8 @@ function Dashboard({
         <Routes>
           <Route path="/" element={<OverviewPage data={data} />} />
           <Route path="/positionen" element={<PositionsPage data={data} reload={reload} />} />
+          <Route path="/sparplaene" element={<SavingsPage data={data} reload={reload} />} />
+          <Route path="/entwicklung" element={<PerformancePage data={data} reload={reload} />} />
           <Route path="/daten" element={<DataPage data={data} reload={reload} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
