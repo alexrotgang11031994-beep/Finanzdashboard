@@ -1,24 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Investmentstratege</title>
-<meta name="description" content="Bestand, Sparpläne und Signale in einer Ansicht. Keine Anlageberatung.">
-<meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="src/styles.css">
-</head>
-<body>
-<div id="app"></div>
-<noscript>
-  <p style="max-width:60ch;margin:60px auto;font-family:system-ui;padding:0 22px">
-    Dieses Dashboard braucht JavaScript. Die zugrunde liegenden Daten liegen als
-    JSON in <code>src/data/</code> und lassen sich auch direkt lesen.
-  </p>
-</noscript>
-<script type="module" src="src/app.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Finanzdashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script>
+      // Gegenstück zu public/404.html: den dort in die Query gepackten Pfad
+      // wiederherstellen, bevor der Router startet.
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get('redirect');
+        if (redirect) {
+          history.replaceState(null, '', document.baseURI.replace(/\/$/, '/') + redirect);
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <noscript>Dieses Dashboard benötigt JavaScript.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Finanzdashboard</title>
+    <script>
+      // GitHub Pages liefert für jede Unterseite eine 404 aus, weil dort keine
+      // Datei liegt — die Route kennt nur der Client-Router. Diese Seite
+      // schreibt den Pfad in die Query-Zeichenkette um und lädt index.html,
+      // das ihn wieder zurückverwandelt. Ohne diesen Umweg ist ein Reload auf
+      // /Finanzdashboard/positionen ein harter 404.
+      var base = '/Finanzdashboard/';
+      var l = window.location;
+      var path = l.pathname.slice(base.length);
+      l.replace(
+        l.origin +
+          base +
+          '?redirect=' +
+          encodeURIComponent(path + l.search.replace('?', '&') + l.hash),
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

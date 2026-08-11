@@ -1,13 +1,30 @@
 {
   "name": "finanzdashboard",
-  "version": "1.0.0",
-  "description": "Finanzdashboard - Portfolio, Sparpläne und Signalquellen in einer Ansicht. Statisch, ohne Build-Schritt.",
+  "version": "2.0.0",
+  "description": "Finanzdashboard - Portfolio, Sparpläne und Signalquellen. Mehrbenutzerfähig mit Supabase.",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "npx http-server -p 8080 -c-1 -o",
-    "signals": "node scripts/fetch-signals.mjs",
-    "check": "node --check src/app.js && node --check scripts/fetch-signals.mjs"
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "signals": "node scripts/fetch-signals.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
+    "@tanstack/react-table": "^8.21.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.3",
+    "recharts": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9"
   },
   "license": "MIT"
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Holt Signale und schreibt src/data/signals.json.
+ * Holt Signale und schreibt public/data/signals.json.
  *
  * Läuft in GitHub Actions, nicht im Browser. Das löst drei Probleme auf einmal:
  *   1. Kein CORS — der Server darf holen, was der Browser nicht darf.
@@ -15,7 +15,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const OUT = resolve(HERE, '../src/data/signals.json');
+const OUT = resolve(HERE, '../public/data/signals.json');
 
 /** Tickers, für die überhaupt gefiltert wird. Aus portfolio.json ableitbar. */
 const WATCH = ['NVDA', 'TSM', 'AMZN', 'GOOGL', 'MSFT', 'AVGO', 'INTC', 'AMD', 'MU',

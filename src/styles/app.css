@@ -1,0 +1,430 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--display);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.4em;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 1.15rem;
+}
+h3 {
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+.mute {
+  color: var(--mute);
+}
+.small {
+  font-size: 0.85rem;
+}
+.num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.right {
+  text-align: right;
+}
+
+/* Sichtbarer Fokus überall — Voraussetzung für Tastaturbedienung. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------ Layout */
+
+.shell {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 22px 90px;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 20px;
+  padding: 22px 0 14px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.topbar .grow {
+  flex: 1;
+}
+
+.total {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  color: var(--ink);
+}
+
+nav.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0 0 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+nav.tabs a {
+  padding: 10px 14px;
+  text-decoration: none;
+  color: var(--mute);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+nav.tabs a.on {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+nav.tabs a:hover {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------------- Cards */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin: 0 0 20px;
+  box-shadow: var(--shadow);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 0 0 20px;
+}
+
+.kpi {
+  background: var(--card);
+  padding: 14px 16px;
+}
+
+.kpi .label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--mute);
+  margin-bottom: 4px;
+}
+
+.kpi .value {
+  font-family: var(--mono);
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------- Cluster-Bandanzeige */
+
+.band {
+  display: flex;
+  height: 26px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--rule-soft);
+  margin: 10px 0 14px;
+}
+
+.band .seg {
+  min-width: 2px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 0.85rem;
+}
+
+.legend .item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex: none;
+}
+
+/* ------------------------------------------------------------------ Tabellen */
+
+.tblwrap {
+  overflow-x: auto;
+  margin: 0 -18px;
+  padding: 0 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th,
+td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  color: var(--mute);
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+th button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+tbody tr:hover {
+  background: var(--card-raised);
+}
+
+.dbar {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+  min-width: 2px;
+}
+
+/* -------------------------------------------------------------- Regelbefunde */
+
+.findings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.findings li {
+  display: grid;
+  grid-template-columns: 82px 152px 1fr;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.findings li:last-child {
+  border-bottom: 0;
+}
+
+.level {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.level.hoch {
+  color: var(--warn);
+}
+.level.mittel {
+  color: var(--caution);
+}
+.level.niedrig {
+  color: var(--mute);
+}
+
+/* ------------------------------------------------------------------ Formulare */
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--mute);
+  margin: 14px 0 5px;
+}
+
+input[type='email'],
+input[type='text'],
+input[type='number'],
+select {
+  width: 100%;
+  padding: 9px 11px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--card-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  padding: 9px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+button.link {
+  all: unset;
+  cursor: pointer;
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.btnrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.error {
+  color: var(--warn);
+  font-size: 0.88rem;
+}
+
+.notice {
+  background: var(--card-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.empty {
+  padding: 26px;
+  text-align: center;
+  color: var(--mute);
+  background: var(--card-raised);
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius);
+}
+
+/* ---------------------------------------------------------------- Anmeldung */
+
+.auth {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.auth-card button[type='submit'] {
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* -------------------------------------------------------------------- Sonstiges */
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  margin-right: 6px;
+}
+.dot.stale {
+  background: var(--stale);
+}
+
+footer.legal {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  color: var(--mute);
+}
+
+@media (max-width: 760px) {
+  .shell {
+    padding: 0 14px 70px;
+  }
+  .tblwrap {
+    margin: 0 -14px;
+    padding: 0 14px;
+  }
+  .findings li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  nav.tabs a {
+    padding: 9px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

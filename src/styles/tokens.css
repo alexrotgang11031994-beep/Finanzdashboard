@@ -1,0 +1,112 @@
+/*
+ * Design-Tokens.
+ *
+ * Alle Farben stehen hier. In legacy/styles.css standen sieben Farben in :root,
+ * aber weitere sechs verstreut im Stylesheet (#B8922C, #d9dcd4, #8C5A1E und drei
+ * Grautöne) und die Chart-Farben als String-Literale im JavaScript. Genau das
+ * hat den White-Label-Anspruch unterlaufen. Jetzt gibt es außerhalb dieser
+ * Datei keine Farbliterale mehr — Cluster-Farben ausgenommen, die pro Nutzer
+ * in der Datenbank liegen.
+ *
+ * Reihenfolge der Regeln ist wichtig: prefers-color-scheme setzt den
+ * Systemwunsch, [data-theme] auf <html> überschreibt ihn in beide Richtungen.
+ */
+
+:root {
+  color-scheme: light;
+
+  --paper: #e7e9e3;
+  --card: #f1f2ee;
+  --card-raised: #f8f9f6;
+  --ink: #14171a;
+  --ink-soft: #23282a;
+  --mute: #5c6360;
+  --rule: #c6cac1;
+  --rule-soft: #d9dcd4;
+
+  --accent: #0e7a6e;
+  --accent-ink: #ffffff;
+  --warn: #a8391f;
+  --caution: #8c5a1e;
+  --stale: #b8922c;
+  --ok: #2f6b3d;
+
+  --focus: #0e7a6e;
+  --shadow: 0 1px 2px rgb(20 23 26 / 8%);
+
+  --display: 'Familjen Grotesk', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --maxw: 1180px;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --paper: #14171a;
+    --card: #1c2023;
+    --card-raised: #24292d;
+    --ink: #e7e9e3;
+    --ink-soft: #d2d6d0;
+    --mute: #9aa29e;
+    --rule: #2e3438;
+    --rule-soft: #262b2f;
+
+    --accent: #4fbfae;
+    --accent-ink: #0b1416;
+    --warn: #e2795c;
+    --caution: #d9a05b;
+    --stale: #d4b04e;
+    --ok: #6fbf82;
+
+    --focus: #4fbfae;
+    --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --paper: #14171a;
+  --card: #1c2023;
+  --card-raised: #24292d;
+  --ink: #e7e9e3;
+  --ink-soft: #d2d6d0;
+  --mute: #9aa29e;
+  --rule: #2e3438;
+  --rule-soft: #262b2f;
+
+  --accent: #4fbfae;
+  --accent-ink: #0b1416;
+  --warn: #e2795c;
+  --caution: #d9a05b;
+  --stale: #d4b04e;
+  --ok: #6fbf82;
+
+  --focus: #4fbfae;
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --paper: #e7e9e3;
+  --card: #f1f2ee;
+  --card-raised: #f8f9f6;
+  --ink: #14171a;
+  --ink-soft: #23282a;
+  --mute: #5c6360;
+  --rule: #c6cac1;
+  --rule-soft: #d9dcd4;
+
+  --accent: #0e7a6e;
+  --accent-ink: #ffffff;
+  --warn: #a8391f;
+  --caution: #8c5a1e;
+  --stale: #b8922c;
+  --ok: #2f6b3d;
+
+  --focus: #0e7a6e;
+  --shadow: 0 1px 2px rgb(20 23 26 / 8%);
+}
