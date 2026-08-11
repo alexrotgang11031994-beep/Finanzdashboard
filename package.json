@@ -1,7 +1,7 @@
 {
-  "name": "investmentstratege",
+  "name": "finanzdashboard",
   "version": "1.0.0",
-  "description": "Investmentstratege - Portfolio, Sparplaene und Signalquellen. Statisch, ohne Build-Schritt.",
+  "description": "Finanzdashboard - Portfolio, Sparpläne und Signalquellen in einer Ansicht. Statisch, ohne Build-Schritt.",
   "type": "module",
   "private": true,
   "scripts": {
