@@ -7,4 +7,8 @@ export default defineConfig({
   base: '/Finanzdashboard/',
   plugins: [react()],
   server: { port: 5173 },
+  // legacy/ ist eine Referenzkopie des alten Standes, kein Einstiegspunkt.
+  // Ohne diese Eingrenzung zieht der Abhängigkeitsscanner legacy/index.html
+  // mit hinein und meldet nicht auflösbare Importe.
+  optimizeDeps: { entries: ['index.html', 'src/**/*.{ts,tsx}'] },
 });
