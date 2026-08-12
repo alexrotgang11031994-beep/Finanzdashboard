@@ -259,7 +259,111 @@ async function arxiv() {
 }
 
 /* ------------------------------------------------------------------ */
-/* 5. Presse-Feeds — ausschließlich Überschrift und Link               */
+/* 5. USAspending — Staatsaufträge, die Stufe zwischen Idee und Bilanz  */
+/* ------------------------------------------------------------------ */
+/**
+ * Schließt die Lücke zwischen arXiv (Forschung) und EDGAR (Pflichtmitteilung):
+ * Ein Regierungsauftrag ist Geld, das bereits fließt, aber noch lange nicht in
+ * einer Quartalszahl steht. Die Beschreibung nennt dabei oft präzise, woran
+ * gearbeitet wird — deutlich konkreter als eine Pressemitteilung.
+ *
+ * Zwei Eigenheiten, die den Zuschnitt bestimmen:
+ *
+ * 1. Aufträge zu einem Fachbegriff sind selten. Ein Dreimonatsfenster lieferte
+ *    im Test null Treffer, zwölf Monate liefern brauchbar viele. Diese Quelle
+ *    ist deshalb bewusst träger eingestellt als die übrigen.
+ * 2. Der Zeitfilter greift auf das Änderungsdatum, angezeigt wird aber der
+ *    Vertragsbeginn — der liegt regelmäßig weiter zurück. Die Einträge sinken
+ *    dadurch ans Ende der nach Datum sortierten Liste. Das ist richtig so:
+ *    der Vertrag ist tatsächlich älter, nur die Änderung ist frisch.
+ *
+ * Nur Aufträge (award_type_codes A–D), keine Fördermittel: Zuwendungen gehen
+ * überwiegend an Hochschulen und sagen wenig über Unternehmen.
+ */
+const USASPENDING_PER_TERM = 3;
+const USASPENDING_LOOKBACK_DAYS = 365;
+
+/**
+ * Mindestauftragswert in USD.
+ *
+ * Ohne ihn dominiert Verbrauchsmaterial die Liste: Der Test lieferte für
+ * „rare earth" ein Whiteboard für 1.144 USD und einen Hebemagneten für
+ * 2.139 USD — die Begriffe stecken im Produktnamen, nicht in einer
+ * Technologie. Ein Filter auf das Vorkommen im Beschreibungstext hilft
+ * dagegen nicht: Er würde genau diese Fehltreffer durchlassen und
+ * umgekehrt echte streichen, bei denen der Begriff im Firmennamen steht
+ * (IPG Photonics, AdValue Photonics) statt in der Leistungsbeschreibung.
+ * Die Auftragshöhe trennt beides zuverlässig.
+ *
+ * Die Schwelle ist bewusst niedrig: Sie soll Bürobedarf aussortieren, nicht
+ * kleine Aufträge an junge Technologiefirmen — die sind für Vorlaufsignale
+ * gerade die interessanten.
+ */
+const USASPENDING_MIN_USD = 25_000;
+
+async function usaSpending() {
+  const to = new Date();
+  const from = new Date(to.getTime() - USASPENDING_LOOKBACK_DAYS * 86400 * 1000);
+  const iso = (d) => d.toISOString().slice(0, 10);
+
+  for (const term of TECH_TERMS) {
+    const body = {
+      filters: {
+        keywords: [term],
+        time_period: [{ start_date: iso(from), end_date: iso(to) }],
+        award_type_codes: ['A', 'B', 'C', 'D'],
+      },
+      fields: ['Award ID', 'Recipient Name', 'Award Amount', 'Awarding Agency', 'Start Date', 'Description'],
+      page: 1,
+      limit: USASPENDING_PER_TERM,
+      sort: 'Start Date',
+      order: 'desc',
+      subawards: false,
+    };
+
+    try {
+      const res = await fetch('https://api.usaspending.gov/api/v2/search/spending_by_award/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'User-Agent': UA },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      for (const row of data?.results ?? []) {
+        const recipient = row['Recipient Name'] ?? 'Unbekannter Auftragnehmer';
+        const amount = Number(row['Award Amount']) || 0;
+        if (amount < USASPENDING_MIN_USD) continue;
+        const agency = row['Awarding Agency'] ?? 'unbekannte Behörde';
+        const euroish = amount.toLocaleString('de-DE', { maximumFractionDigits: 0 });
+        // Auftragsbeschreibungen stehen in Großbuchstaben und sind oft sehr lang.
+        const desc = String(row['Description'] ?? '').trim();
+        const shortDesc = desc.length > 220 ? `${desc.slice(0, 220)}…` : desc;
+
+        items.push({
+          source: 'USAspending',
+          tier: 'public',
+          title: `${recipient}: ${euroish} USD von ${agency} — „${term}"`,
+          url: row.generated_internal_id
+            ? `https://www.usaspending.gov/award/${encodeURIComponent(row.generated_internal_id)}`
+            : 'https://www.usaspending.gov/search',
+          date: row['Start Date'] ?? null,
+          summary: (shortDesc ? `Leistungsbeschreibung: ${shortDesc} ` : '')
+                 + 'Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine '
+                 + 'Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert '
+                 + 'oder Tochtergesellschaften.',
+        });
+      }
+    } catch (e) {
+      errors.push(`usaspending "${term}": ${e.message}`);
+    }
+
+    await new Promise((r) => setTimeout(r, 400));
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. Presse-Feeds — ausschließlich Überschrift und Link               */
 /* ------------------------------------------------------------------ */
 async function rss(sourceLabel, feedUrl, limit = 12) {
   const res = await fetch(feedUrl, { headers: { 'User-Agent': UA } });
@@ -303,6 +407,7 @@ async function main() {
   await safe('sec-form4', secForm4);
   await safe('edgar-volltext', edgarFullText);
   await safe('arxiv', arxiv);
+  await safe('usaspending', usaSpending);
   await safe('congress', congress);
   // Der Aktionär: deraktionaer.de hat den RSS-Feed abgeschaltet — /rss, /feed,
   // /rss.xml und Varianten liefern alle 404, und die Startseite enthält kein

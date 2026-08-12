@@ -70,6 +70,19 @@ export const SOURCES: SourceDef[] = [
       'allermeisten Arbeiten werden nie ein Produkt. Anstoß zum Lesen, kein Signal.',
   },
   {
+    id: 'usaspending',
+    label: 'USAspending — US-Staatsaufträge',
+    tier: 'public',
+    enabled: true,
+    note:
+      'Schließt die Lücke zwischen Forschung und Pflichtmitteilung: Ein Regierungsauftrag ist Geld, ' +
+      'das fließt, bevor es in einer Quartalszahl steht — und die Leistungsbeschreibung nennt oft ' +
+      'präzise, woran gearbeitet wird. Angezeigt wird der Vertragsbeginn, der weiter zurückliegen ' +
+      'kann als die Änderung, über die der Auftrag in die Auswahl kam. Aufträge unter 25.000 USD ' +
+      'werden ausgefiltert, sonst dominiert Verbrauchsmaterial die Liste. Auftragnehmer sind häufig ' +
+      'nicht börsennotiert oder Tochtergesellschaften.',
+  },
+  {
     id: 'congress',
     label: 'US-Kongress — STOCK Act',
     tier: 'licensed',

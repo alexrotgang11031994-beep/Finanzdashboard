@@ -1,11 +1,27 @@
 {
- "generatedAt": "2026-08-12T19:52:10.468Z",
+ "generatedAt": "2026-08-12T19:58:51.269Z",
  "disclaimer": "Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. Keine Anlageberatung, keine eigene Empfehlung des Betreibers.",
  "errors": [
   "congress: kein QUIVER_API_KEY gesetzt, übersprungen",
   "aktionaer: RSS-Feed von deraktionaer.de abgeschaltet, Quelle deaktiviert"
  ],
  "items": [
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Okray Thomas B (0001689107) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1689107/000119312526346752/0001193125-26-346752-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - MONRO, INC. (0000876427) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/876427/000119312526346752/0001193125-26-346752-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
   {
    "source": "SEC Form 4",
    "tier": "public",
@@ -307,22 +323,6 @@
    "tier": "public",
    "title": "4 - WESBANCO INC (0000203596) (Issuer)",
    "url": "https://www.sec.gov/Archives/edgar/data/203596/000020359626000108/0000203596-26-000108-index.htm",
-   "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
-  },
-  {
-   "source": "SEC Form 4",
-   "tier": "public",
-   "title": "4 - Adagio Medical Holdings, Inc. (0002006986) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/2006986/000179238026000002/0001792380-26-000002-index.htm",
-   "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
-  },
-  {
-   "source": "SEC Form 4",
-   "tier": "public",
-   "title": "4 - Salmon Sean (0001792380) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1792380/000179238026000002/0001792380-26-000002-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
@@ -676,6 +676,14 @@
    "summary": "Preprint von Yuhang Wang, Qian Wang, Seong-Hoon Jang u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
   },
   {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "SINGULAR PHOTONICS LIMITED: 90.285 USD von National Aeronautics and Space Administration — „photonic\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_80NSSC26P1222_8000_-NONE-_-NONE-",
+   "date": "2026-08-07",
+   "summary": "Leistungsbeschreibung: PROTOTYPE CAMERA FOR MULTIPLE PROJECTS Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
    "source": "SEC Volltextsuche",
    "tier": "public",
    "ticker": "QBTS",
@@ -817,6 +825,14 @@
    "url": "http://arxiv.org/abs/2608.05647v1",
    "date": "2026-08-06",
    "summary": "Preprint von Jixin Gao, Fucheng Liu, Teng Zhang u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "IPG PHOTONICS CORPORATION: 818.735 USD von Department of Commerce — „photonic\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_1333ND26PNB030305_1341_-NONE-_-NONE-",
+   "date": "2026-08-06",
+   "summary": "Leistungsbeschreibung: OU03-26-215-NEW CLPF-2400 OPTICAL FREQUENCY COMB Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
   },
   {
    "source": "SEC Volltextsuche",
@@ -1256,6 +1272,126 @@
    "date": "2026-07-29",
    "url": "https://www.sec.gov/Archives/edgar/data/1828108/000182810826000075/0001828108-26-000075-index.htm",
    "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "ADVALUE PHOTONICS INC: 34.750 USD von Department of Commerce — „photonic\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_1333ND26PNB680251_1341_-NONE-_-NONE-",
+   "date": "2026-07-22",
+   "summary": "Leistungsbeschreibung: OU68-FY26-415-NEW TUNABLE LOW-NOISE SHORTH WAVELENGTH VISIBLE COHERENT LIGHT SOURCE SYSTEM Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "THE CHEMOURS CO FC LLC: 4.500.000 USD von Department of Defense — „rare earth\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_SP470126C0071_9700_-NONE-_-NONE-",
+   "date": "2026-05-07",
+   "summary": "Leistungsbeschreibung: RECOVERY OF SCANDIUM (SC), VANADIUM (V), AND MIXED RARE EARTH ELEMENTS (MREES) FROM THE METAL CHLORIDE CO-PRODUCT OF CHLORIDE PROCESS TITANIUM DIOXIDE (TIO2) PRODUCTION Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "MERIDIAN INTERNATIONAL CENTER: 421.548 USD von United States Trade and Development Agency — „small modular reactor\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_1131PL26F0021_1153_1131PL22DIQ91141_1153",
+   "date": "2026-04-30",
+   "summary": "Leistungsbeschreibung: PHILIPPINES SMALL MODULAR REACTOR AND MICROREACTOR NUCLEAR TECHNOLOGIES RTM Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "THE JOHNS HOPKINS UNIVERSITY APPLIED PHYSICS LABORATORY LLC: 1.355.655 USD von Department of Defense — „autonomous vehicle\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_N0002426F8090_9700_N0002422D6404_9700",
+   "date": "2026-03-25",
+   "summary": "Leistungsbeschreibung: BATTLE READY AUTONOMOUS VEHICLE ENABLER / E PLURIBUS UNUM Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "HYPERION TECHNOLOGIES LLC: 35.000 USD von National Aeronautics and Space Administration — „quantum computing\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_80JSC026F0016_8000_80JSC025D0044_8000",
+   "date": "2026-02-04",
+   "summary": "Leistungsbeschreibung: QUANTUM COMPUTING FOR EARTH SCIENCE Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "U.S. CIVILIAN RESEARCH AND DEVELOPMENT FOUNDATION: 262.355 USD von Department of State — „small modular reactor\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_19AQMM26F0022_1900_19AQMM21D0123_1900",
+   "date": "2025-12-11",
+   "summary": "Leistungsbeschreibung: FIRST - SMALL MODULAR REACTOR (SMR) TECHNOLOGY WORKSHOP Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "EATON CORPORATION: 7.009.075 USD von Department of Defense — „quantum computing\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_FA875025CB065_9700_-NONE-_-NONE-",
+   "date": "2025-09-26",
+   "summary": "Leistungsbeschreibung: QUANTUM COMPUTING FOR RESILIENCY AND SECURITY ADVANCE QUANTUM COMPUTING BY INTEGRATING ALGORITHMS, HARDWARE, AND DOMAIN-SPECIFIC EXPERTISE TO SOLVE CRITICAL PROBLEMS. Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "LIFEASIBLE INC: 33.000 USD von Department of Agriculture — „gene editing\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_1232SA25P0239_12H2_-NONE-_-NONE-",
+   "date": "2025-09-01",
+   "summary": "Leistungsbeschreibung: GENE EXPRESSION AND GENE EDITING Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "THE JOHNS HOPKINS UNIVERSITY APPLIED PHYSICS LABORATORY LLC: 1.243.525 USD von Department of Defense — „autonomous vehicle\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_N0002425F8133_9700_N0002422D6404_9700",
+   "date": "2025-07-31",
+   "summary": "Leistungsbeschreibung: MARITIME AUTONOMOUS VEHICLE RESEARCH AND SYSTEMS ENGINEERING Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "QUANTUM COMPUTING INC: 69.500 USD von Department of Commerce — „quantum computing\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_1333ND25PNB770175_1341_-NONE-_-NONE-",
+   "date": "2025-06-16",
+   "summary": "Leistungsbeschreibung: OU77-25-NEW-001 - THIN-FILM LITHIUM NIOBATE (TFLN) PHOTONIC CHIPS Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "UNIVERSITY OF TEXAS AT AUSTIN: 2.470.824 USD von Department of Defense — „autonomous vehicle\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_N0002425F8534_9700_N0002417D6421_9700",
+   "date": "2025-06-03",
+   "summary": "Leistungsbeschreibung: RADIO FREQUENCY CONNECTIVITY FOR AUTONOMOUS VEHICLE NAVIGATION (RAVN) Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "NATRION INC: 1.236.881 USD von Department of Defense — „solid-state battery\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_FA864924P1076_9700_-NONE-_-NONE-",
+   "date": "2024-09-13",
+   "summary": "Leistungsbeschreibung: SCALABLE, HIGH-PERFORMANCE, TEMPERATURE-RESILIENT SOLID-STATE BATTERIES FOR ELECTRONICS AND DIRECTED ENERGY WEAPONS Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "ICF INCORPORATED, L.L.C.: 237.165 USD von Nuclear Regulatory Commission — „small modular reactor\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_31310022F0017_3100_31310020D0011_3100",
+   "date": "2022-06-15",
+   "summary": "Leistungsbeschreibung: EMERGENCY PREPAREDNESS OVERSIGHT FOR SMALL MODULAR REACTOR & OTHER NEW TECHNOLOGIES Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "SYNTHEGO CORPORATION: 61.488 USD von Department of Health and Human Services — „gene editing\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_75N92021P00258_7529_-NONE-_-NONE-",
+   "date": "2021-08-02",
+   "summary": "Leistungsbeschreibung: TO PROCURE CRISPR GENE-EDITING OF THE ACVR1 AND TGFBR1 GENES IN ENDOMETRIAL CANCER CELL LINES FOR NHGRI. Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
+  },
+  {
+   "source": "USAspending",
+   "tier": "public",
+   "title": "LIFE TECHNOLOGIES CORPORATION: 39.516 USD von Department of Health and Human Services — „gene editing\"",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_75N96021P00224_7529_-NONE-_-NONE-",
+   "date": "2021-07-16",
+   "summary": "Leistungsbeschreibung: CRISPR GENE EDITING Angegeben ist der Vertragsbeginn; in die Auswahl kam der Auftrag über eine Änderung im letzten Jahr. Auftragnehmer sind häufig nicht börsennotiert oder Tochtergesellschaften."
   }
  ]
 }
