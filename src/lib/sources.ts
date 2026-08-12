@@ -79,9 +79,11 @@ export const SOURCES: SourceDef[] = [
     id: 'aktionaer',
     label: 'Der Aktionär',
     tier: 'linkout',
-    enabled: true,
+    enabled: false,
     note:
-      'Urheberrechtlich geschützt. Ausschließlich Überschrift plus Link, niemals Volltext. ' +
-      'Für mehr braucht es eine Lizenz.',
+      'RSS-Feed abgeschaltet — /rss, /feed und Varianten antworten mit 404, die Startseite ' +
+      'nennt keinen Feed mehr. Deshalb deaktiviert. Kein Ersatz per Scraping: die Inhalte sind ' +
+      'urheberrechtlich geschützt, und ohne Feed gibt es keine erkennbare Freigabe zur ' +
+      'Weiterverbreitung.',
   },
 ];

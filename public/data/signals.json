@@ -1,0 +1,330 @@
+{
+ "generatedAt": "2026-08-12T19:36:00.709Z",
+ "disclaimer": "Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. Keine Anlageberatung, keine eigene Empfehlung des Betreibers.",
+ "errors": [
+  "congress: kein QUIVER_API_KEY gesetzt, übersprungen",
+  "aktionaer: RSS-Feed von deraktionaer.de abgeschaltet, Quelle deaktiviert"
+ ],
+ "items": [
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - KIDZ AI Inc. (0002022308) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2022308/000147559726000198/0001475597-26-000198-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HRT FINANCIAL LP (0001475597) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1475597/000147559726000198/0001475597-26-000198-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Johnson Leah C. (0001757713) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1757713/000119312526346683/0001193125-26-346683-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - MONRO, INC. (0000876427) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/876427/000119312526346683/0001193125-26-346683-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - MCCLUSKI STEPHEN C (0001188728) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1188728/000119312526346678/0001193125-26-346678-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - MONRO, INC. (0000876427) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/876427/000119312526346678/0001193125-26-346678-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Hyde Lindsay (0001713723) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1713723/000119312526346672/0001193125-26-346672-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - MONRO, INC. (0000876427) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/876427/000119312526346672/0001193125-26-346672-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Maison Solutions Inc. (0001892292) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1892292/000147559726000196/0001475597-26-000196-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HRT FINANCIAL LP (0001475597) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1475597/000147559726000196/0001475597-26-000196-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Texas Pacific Land Corp (0001811074) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1811074/000143774926027275/0001437749-26-027275-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HORIZON KINETICS ASSET MANAGEMENT LLC (0001056823) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1056823/000143774926027275/0001437749-26-027275-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Profusa, Inc. (0001859807) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1859807/000147559726000194/0001475597-26-000194-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HRT FINANCIAL LP (0001475597) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1475597/000147559726000194/0001475597-26-000194-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Kimbell David C (0001553883) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1553883/000119312526346638/0001193125-26-346638-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - GROUP 1 AUTOMOTIVE INC (0001031203) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1031203/000119312526346638/0001193125-26-346638-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - SYREK MICHAEL A (0001553722) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1553722/000143774926027272/0001437749-26-027272-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - BANK OF THE JAMES FINANCIAL GROUP INC (0001275101) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1275101/000143774926027272/0001437749-26-027272-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Saul Kennedy O (0002076312) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2076312/000143774926027263/0001437749-26-027263-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Avidia Bancorp, Inc. (0002058758) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2058758/000143774926027263/0001437749-26-027263-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Grimaldo Joseph F (0002076307) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2076307/000143774926027261/0001437749-26-027261-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Avidia Bancorp, Inc. (0002058758) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2058758/000143774926027261/0001437749-26-027261-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Bershad Joshua (0001836661) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1836661/000162828026056119/0001628280-26-056119-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - MIDDLESEX WATER CO (0000066004) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/66004/000162828026056119/0001628280-26-056119-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - McMahon Robert W. (0001608730) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1608730/000010577026000104/0000105770-26-000104-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - WEST PHARMACEUTICAL SERVICES INC (0000105770) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/105770/000010577026000104/0000105770-26-000104-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HPS Real Assets Lending Co LP (0002089975) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2089975/000119312526346579/0001193125-26-346579-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Busch Robert W (0001761009) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1761009/000119312526346579/0001193125-26-346579-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - French Scot (0002128277) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2128277/000119312526346569/0001193125-26-346569-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HPS Real Assets Lending Co LP (0002089975) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2089975/000119312526346569/0001193125-26-346569-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Stenberg Jon (0002015793) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2015793/000201579326000014/0002015793-26-000014-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - CITIZENS, INC. (0000024090) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/24090/000201579326000014/0002015793-26-000014-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HPS Real Assets Lending Co LP (0002089975) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2089975/000119312526346560/0001193125-26-346560-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Choi Yoohyun (0001894538) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1894538/000119312526346560/0001193125-26-346560-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Friend Robert H (0001953294) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1953294/000020359626000108/0000203596-26-000108-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - WESBANCO INC (0000203596) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/203596/000020359626000108/0000203596-26-000108-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Adagio Medical Holdings, Inc. (0002006986) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2006986/000179238026000002/0001792380-26-000002-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Salmon Sean (0001792380) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1792380/000179238026000002/0001792380-26-000002-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - HPS Real Assets Lending Co LP (0002089975) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2089975/000119312526346520/0001193125-26-346520-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Lawson Hugh J (0001294783) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1294783/000119312526346520/0001193125-26-346520-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  }
+ ]
+}

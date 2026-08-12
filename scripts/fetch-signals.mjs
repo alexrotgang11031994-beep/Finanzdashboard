@@ -33,8 +33,13 @@ const errors = [];
 async function secForm4() {
   // Die SEC verlangt einen aussagekräftigen User-Agent mit Kontaktadresse
   // und begrenzt auf ~10 Anfragen pro Sekunde. Beides wird hier eingehalten.
+  //
+  // action=getcurrent liefert die zuletzt eingegangenen Meldungen; getcompany
+  // braucht eine konkrete Firma und gab ohne sie stillschweigend null Einträge
+  // zurück. owner=only ist ebenfalls nötig: mit owner=include ignoriert EDGAR
+  // den type-Filter und liefert querbeet alle Formulararten (424B2 & Co.).
   const url = 'https://www.sec.gov/cgi-bin/browse-edgar'
-    + '?action=getcompany&type=4&dateb=&owner=include&count=40&output=atom';
+    + '?action=getcurrent&type=4&owner=only&count=40&output=atom';
   const res = await fetch(url, { headers: { 'User-Agent': UA, 'Accept-Encoding': 'gzip' } });
   if (!res.ok) throw new Error(`SEC HTTP ${res.status}`);
   const xml = await res.text();
@@ -125,7 +130,13 @@ async function safe(name, fn) {
 async function main() {
   await safe('sec-form4', secForm4);
   await safe('congress', congress);
-  await safe('aktionaer', () => rss('Der Aktionär', 'https://www.deraktionaer.de/rss'));
+  // Der Aktionär: deraktionaer.de hat den RSS-Feed abgeschaltet — /rss, /feed,
+  // /rss.xml und Varianten liefern alle 404, und die Startseite enthält kein
+  // <link rel="alternate" type="application/rss+xml"> mehr. Der Abruf ist
+  // deshalb deaktiviert statt bei jedem Lauf zu scheitern. Kein Ersatz per
+  // Scraping: der Inhalt ist urheberrechtlich geschützt, und ohne Feed gibt es
+  // keine erkennbare Freigabe zur Weiterverbreitung (siehe docs/QUELLEN.md).
+  errors.push('aktionaer: RSS-Feed von deraktionaer.de abgeschaltet, Quelle deaktiviert');
   // Weitere Feeds hier ergänzen. Vor jedem neuen Feed die Nutzungsbedingungen prüfen.
 
   items.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
