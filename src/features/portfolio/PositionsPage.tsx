@@ -94,8 +94,10 @@ export function PositionsPage({
         cell: (info) => (
           <>
             <div>{info.getValue()}</div>
-            {info.row.original.ticker && (
-              <div className="mute small num">{info.row.original.ticker}</div>
+            {(info.row.original.ticker || info.row.original.isin) && (
+              <div className="mute small num">
+                {[info.row.original.ticker, info.row.original.isin].filter(Boolean).join(' · ')}
+              </div>
             )}
           </>
         ),
