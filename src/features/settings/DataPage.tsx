@@ -4,6 +4,7 @@ import type { ExportBundle } from '../../lib/store';
 import { buildDemoBundle } from '../../lib/demoData';
 import { date as fmtDate, eur } from '../../lib/format';
 import type { PortfolioData } from '../../lib/queries';
+import { getApiKey, setApiKey } from '../../lib/market/fmp';
 
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
 
@@ -12,6 +13,7 @@ export function DataPage({ data, reload }: { data: PortfolioData; reload: () => 
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [note, setNote] = useState<string | null>(null);
+  const [apiKeyInput, setApiKeyInput] = useState(getApiKey());
 
   async function run(label: string, fn: () => Promise<void>) {
     setError(null);
@@ -157,6 +159,55 @@ export function DataPage({ data, reload }: { data: PortfolioData; reload: () => 
           >
             {busy === 'reset' ? 'Setzt zurück …' : 'Alles zurücksetzen'}
           </button>
+        </div>
+      </section>
+
+      <section className="card">
+        <h2>Kursdaten</h2>
+        <p className="mute small">
+          Für die automatische Suche im Positionsformular (Name, ISIN, Branche) und die
+          Kurs-Spalte in der Positionsliste wird{' '}
+          <a href="https://site.financialmodelingprep.com/developer/docs" target="_blank" rel="noreferrer">
+            Financial Modeling Prep
+          </a>{' '}
+          angefragt — direkt aus diesem Browser, es gibt keinen Server dazwischen. Ein kostenloser
+          Schlüssel erlaubt 250 Abfragen pro Tag, Kurse mit Verzögerung; nicht jede Position an
+          einer deutschen Börse ist im kostenlosen Plan erfasst. Der Schlüssel liegt ausschließlich
+          in diesem Browser und geht nur an financialmodelingprep.com — nirgendwo sonst hin.
+        </p>
+        <label htmlFor="fmp-key">API-Schlüssel</label>
+        <input
+          id="fmp-key"
+          type="text"
+          value={apiKeyInput}
+          onChange={(e) => setApiKeyInput(e.target.value)}
+          placeholder="z. B. abcdEFGH12345…"
+          autoComplete="off"
+        />
+        <div className="btnrow">
+          <button
+            type="button"
+            onClick={() => {
+              setApiKey(apiKeyInput);
+              setError(null);
+              setNote(apiKeyInput.trim() ? 'Schlüssel gespeichert.' : 'Schlüssel entfernt.');
+            }}
+          >
+            Speichern
+          </button>
+          {getApiKey() && (
+            <button
+              type="button"
+              className="ghost"
+              onClick={() => {
+                setApiKey('');
+                setApiKeyInput('');
+                setNote('Schlüssel entfernt.');
+              }}
+            >
+              Entfernen
+            </button>
+          )}
         </div>
       </section>
 

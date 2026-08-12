@@ -8,12 +8,15 @@ import {
   useReactTable,
   type SortingState,
 } from '@tanstack/react-table';
-import { eur, pct } from '../../lib/format';
+import { eur, money, pct } from '../../lib/format';
 import { getStore } from '../../lib/store';
 import type { PortfolioData } from '../../lib/queries';
 import type { Position } from '../../lib/types';
+import { getQuotes, hasApiKey, MarketDataError, type Quote } from '../../lib/market/fmp';
 import { PositionForm } from './PositionForm';
 import { PhotoImportDialog } from './PhotoImportDialog';
+
+const timeFormat = new Intl.DateTimeFormat('de-DE', { hour: '2-digit', minute: '2-digit' });
 
 const columnHelper = createColumnHelper<Position>();
 
@@ -35,7 +38,37 @@ export function PositionsPage({
   const [photoImport, setPhotoImport] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [quotes, setQuotes] = useState<Map<string, Quote>>(new Map());
+  const [quotesBusy, setQuotesBusy] = useState(false);
+  const [quotesError, setQuotesError] = useState<string | null>(null);
+  const [quotesAsOf, setQuotesAsOf] = useState<Date | null>(null);
+
   const clusterLabels = useMemo(() => new Map(clusters.map((c) => [c.key, c])), [clusters]);
+
+  async function refreshQuotes() {
+    setQuotesError(null);
+    if (!hasApiKey()) {
+      setQuotesError('Kein API-Schlüssel hinterlegt — unter „Daten“ eintragen.');
+      return;
+    }
+    const tickers = Array.from(
+      new Set(positions.map((p) => p.ticker?.trim()).filter((t): t is string => Boolean(t))),
+    );
+    if (tickers.length === 0) {
+      setQuotesError('Keine Position hat einen Ticker hinterlegt.');
+      return;
+    }
+    setQuotesBusy(true);
+    try {
+      const result = await getQuotes(tickers);
+      setQuotes(result);
+      setQuotesAsOf(new Date());
+    } catch (err) {
+      setQuotesError(err instanceof MarketDataError ? err.message : 'Kursabruf fehlgeschlagen.');
+    } finally {
+      setQuotesBusy(false);
+    }
+  }
 
   async function remove(p: Position) {
     if (!window.confirm(`„${p.name}" wirklich löschen?`)) return;
@@ -84,6 +117,16 @@ export function PositionsPage({
         cell: (info) => <span className="num">{eur(info.getValue())}</span>,
       }),
       columnHelper.display({
+        id: 'quote',
+        header: 'Kurs',
+        cell: (info) => {
+          const ticker = info.row.original.ticker;
+          const quote = ticker ? quotes.get(ticker) : undefined;
+          if (!quote) return <span className="mute num">–</span>;
+          return <span className="num">{money(quote.price, info.row.original.currency, 2)}</span>;
+        },
+      }),
+      columnHelper.display({
         id: 'share',
         header: 'Anteil',
         cell: (info) => {
@@ -122,7 +165,7 @@ export function PositionsPage({
       }),
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [clusterLabels, total],
+    [clusterLabels, total, quotes],
   );
 
   const filtered = useMemo(
@@ -176,6 +219,9 @@ export function PositionsPage({
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
         <h2>Positionen</h2>
         <div className="btnrow" style={{ marginTop: 0 }}>
+          <button type="button" className="ghost" onClick={() => void refreshQuotes()} disabled={quotesBusy}>
+            {quotesBusy ? 'Aktualisiert …' : 'Kurse aktualisieren'}
+          </button>
           <button type="button" className="ghost" onClick={() => setPhotoImport(true)}>
             Per Foto importieren
           </button>
@@ -184,6 +230,17 @@ export function PositionsPage({
           </button>
         </div>
       </div>
+
+      {quotesAsOf && !quotesError && (
+        <p className="mute small" role="status">
+          Kurse Stand {timeFormat.format(quotesAsOf)} — verzögert, keine Realtime-Daten.
+        </p>
+      )}
+      {quotesError && (
+        <p className="error small" role="alert">
+          {quotesError}
+        </p>
+      )}
 
       {error && (
         <p className="error" role="alert">
