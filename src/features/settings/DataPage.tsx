@@ -179,6 +179,16 @@ export function DataPage({ data, reload }: { data: PortfolioData; reload: () => 
           aber auch reine US-Werte. Der Schlüssel liegt ausschließlich in diesem Browser und geht
           nur an financialmodelingprep.com — nirgendwo sonst hin.
         </p>
+        <p className="mute small">
+          Für Positionen mit ISIN, die FMP nicht liefert, springt „Kurse aktualisieren"
+          automatisch auf einen zweiten, <strong>kontofreien</strong> Weg um: den öffentlichen
+          Kurs-Snapshot von onvista.de, abgerufen über den kostenlosen Lesedienst r.jina.ai (kein
+          API-Schlüssel, keine Anmeldung). In der Tabelle mit „*" markiert. Das ist kein offizieller
+          Datenzugang — ändert onvista die Seite oder schränkt r.jina.ai den Zugriff ein, bricht
+          der Abruf für diese Position ab, statt einen falschen Kurs zu zeigen. Für den seltenen
+          manuellen Klick reicht das; ein API-Schlüssel unter „FMP" bleibt trotzdem sinnvoll, weil
+          er zuverlässiger ist.
+        </p>
         <label htmlFor="fmp-key">API-Schlüssel</label>
         <input
           id="fmp-key"
