@@ -20,6 +20,7 @@ import {
   isKnownCryptoTicker,
   MarketDataError as CryptoError,
 } from '../../lib/market/coingecko';
+import { toEur, FxError } from '../../lib/market/fx';
 import { PositionForm } from './PositionForm';
 import { PhotoImportDialog } from './PhotoImportDialog';
 
@@ -140,6 +141,30 @@ export function PositionsPage({
       setQuotes(result);
       setQuotesAsOf(new Date());
 
+      // Stückzahl einmalig aus dem bisherigen Depotwert rückrechnen (bei
+      // erstem Kurs für diese Position), danach den Depotwert aus
+      // Stückzahl × aktuellem Kurs neu setzen. Ab dann bleibt die Stückzahl
+      // fest, und jeder weitere Kursabruf schreibt den Wert automatisch
+      // fort — das macht ihn dynamisch, ohne an jeder Anzeige-Stelle im
+      // Dashboard extra rechnen zu müssen: Übersicht, Cluster und
+      // Regelprüfung lesen alle denselben `value` aus dem Speicher.
+      const revalued: string[] = [];
+      for (const p of positions) {
+        const quote = result.get(p.id);
+        if (!quote) continue;
+        try {
+          const priceEur = await toEur(quote.price, p.currency);
+          if (!Number.isFinite(priceEur) || priceEur <= 0) continue;
+          const quantity = p.quantity ?? p.value / priceEur;
+          const value = quantity * priceEur;
+          await getStore().updatePosition(p.id, { quantity, value });
+          revalued.push(p.id);
+        } catch (err) {
+          console.warn(`Neubewertung für ${p.name} fehlgeschlagen:`, err);
+        }
+      }
+      if (revalued.length > 0) await reload();
+
       const missing = candidates.filter((p) => !result.has(p.id));
       if (missing.length > 0) {
         setQuotesError(
@@ -152,7 +177,8 @@ export function PositionsPage({
         err instanceof MarketDataError ||
           err instanceof OnvistaError ||
           err instanceof StockAnalysisError ||
-          err instanceof CryptoError
+          err instanceof CryptoError ||
+          err instanceof FxError
           ? err.message
           : 'Kursabruf fehlgeschlagen.',
       );
