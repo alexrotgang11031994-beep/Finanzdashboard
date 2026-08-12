@@ -13,7 +13,13 @@ import { getStore } from '../../lib/store';
 import type { PortfolioData } from '../../lib/queries';
 import type { Position } from '../../lib/types';
 import { getQuotes, hasApiKey, MarketDataError } from '../../lib/market/fmp';
-import { fetchOnvistaPrice, ScrapeError } from '../../lib/market/onvista';
+import { fetchOnvistaPrice, ScrapeError as OnvistaError } from '../../lib/market/onvista';
+import { fetchStockAnalysisPrice, ScrapeError as StockAnalysisError } from '../../lib/market/stockanalysis';
+import {
+  fetchCryptoPrice,
+  isKnownCryptoTicker,
+  MarketDataError as CryptoError,
+} from '../../lib/market/coingecko';
 import { PositionForm } from './PositionForm';
 import { PhotoImportDialog } from './PhotoImportDialog';
 
@@ -22,7 +28,7 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 interface PositionQuote {
   price: number;
-  source: 'fmp' | 'onvista';
+  source: 'fmp' | 'onvista' | 'stockanalysis' | 'coingecko';
 }
 
 const columnHelper = createColumnHelper<Position>();
@@ -53,11 +59,16 @@ export function PositionsPage({
   const clusterLabels = useMemo(() => new Map(clusters.map((c) => [c.key, c])), [clusters]);
 
   /**
-   * Zwei Quellen, in dieser Reihenfolge:
-   * 1. FMP über Ticker (braucht einen Schlüssel, deckt Xetra & Co. nicht ab)
-   * 2. onvista.de über ISIN, kontofrei per Lesedienst — als Fallback für alles,
-   *    was FMP nicht liefert (siehe lib/market/onvista.ts)
-   * Ergebnis wird pro Position (nicht pro Symbol) gehalten, damit sich beide
+   * Vier Quellen, in dieser Reihenfolge:
+   * 1. CoinGecko über Ticker, nur für Krypto-Positionen — echte kostenlose
+   *    API, kein Scraping (siehe lib/market/coingecko.ts)
+   * 2. FMP über Ticker (braucht einen Schlüssel, deckt Xetra & Co. nicht ab)
+   * 3. onvista.de über ISIN, kontofrei per Lesedienst — für deutsche Börsen,
+   *    die FMP sperrt (siehe lib/market/onvista.ts)
+   * 4. stockanalysis.com über Ticker, kontofrei per Lesedienst — für alles
+   *    andere, das FMP sperrt und keine deutsche ISIN hat (siehe
+   *    lib/market/stockanalysis.ts)
+   * Ergebnis wird pro Position (nicht pro Symbol) gehalten, damit sich alle
    * Quellen sauber ergänzen können.
    */
   async function refreshQuotes() {
@@ -72,8 +83,20 @@ export function PositionsPage({
     const result = new Map<string, PositionQuote>();
 
     try {
+      const cryptoPositions = positions.filter((p) => p.ticker && isKnownCryptoTicker(p.ticker));
+      for (let i = 0; i < cryptoPositions.length; i++) {
+        if (i > 0) await sleep(300);
+        const p = cryptoPositions[i]!;
+        try {
+          const price = await fetchCryptoPrice(p.ticker!, p.currency);
+          result.set(p.id, { price, source: 'coingecko' });
+        } catch (err) {
+          console.warn(`CoinGecko-Kursabruf für ${p.name} fehlgeschlagen:`, err);
+        }
+      }
+
       if (hasApiKey()) {
-        const withTicker = positions.filter((p) => p.ticker?.trim());
+        const withTicker = positions.filter((p) => p.ticker?.trim() && !result.has(p.id));
         const tickers = Array.from(new Set(withTicker.map((p) => p.ticker!.trim())));
         if (tickers.length > 0) {
           try {
@@ -83,22 +106,34 @@ export function PositionsPage({
               if (q) result.set(p.id, { price: q.price, source: 'fmp' });
             }
           } catch (err) {
-            // Ausfall des gesamten FMP-Aufrufs (z. B. Tageslimit) — der
-            // onvista-Fallback läuft trotzdem für alle Positionen mit ISIN.
+            // Ausfall des gesamten FMP-Aufrufs (z. B. Tageslimit) — die
+            // übrigen Fallbacks laufen trotzdem weiter.
             console.warn('FMP-Kursabruf fehlgeschlagen:', err);
           }
         }
       }
 
-      const needsFallback = positions.filter((p) => !result.has(p.id) && p.isin?.trim());
-      for (let i = 0; i < needsFallback.length; i++) {
+      const needsOnvista = positions.filter((p) => !result.has(p.id) && p.isin?.trim());
+      for (let i = 0; i < needsOnvista.length; i++) {
         if (i > 0) await sleep(800);
-        const p = needsFallback[i]!;
+        const p = needsOnvista[i]!;
         try {
           const { price } = await fetchOnvistaPrice(p.isin!.trim());
           result.set(p.id, { price, source: 'onvista' });
         } catch (err) {
           console.warn(`onvista-Kursabruf für ${p.name} fehlgeschlagen:`, err);
+        }
+      }
+
+      const needsStockAnalysis = positions.filter((p) => !result.has(p.id) && p.ticker?.trim());
+      for (let i = 0; i < needsStockAnalysis.length; i++) {
+        if (i > 0) await sleep(800);
+        const p = needsStockAnalysis[i]!;
+        try {
+          const { price } = await fetchStockAnalysisPrice(p.ticker!.trim());
+          result.set(p.id, { price, source: 'stockanalysis' });
+        } catch (err) {
+          console.warn(`stockanalysis-Kursabruf für ${p.name} fehlgeschlagen:`, err);
         }
       }
 
@@ -114,7 +149,10 @@ export function PositionsPage({
       }
     } catch (err) {
       setQuotesError(
-        err instanceof MarketDataError || err instanceof ScrapeError
+        err instanceof MarketDataError ||
+          err instanceof OnvistaError ||
+          err instanceof StockAnalysisError ||
+          err instanceof CryptoError
           ? err.message
           : 'Kursabruf fehlgeschlagen.',
       );
@@ -177,13 +215,17 @@ export function PositionsPage({
         cell: (info) => {
           const quote = quotes.get(info.row.original.id);
           if (!quote) return <span className="mute num">–</span>;
+          const isScraped = quote.source === 'onvista' || quote.source === 'stockanalysis';
+          const sourceLabel = {
+            fmp: 'Financial Modeling Prep',
+            onvista: 'onvista.de',
+            stockanalysis: 'stockanalysis.com',
+            coingecko: 'CoinGecko',
+          }[quote.source];
           return (
-            <span
-              className="num"
-              title={quote.source === 'onvista' ? 'Quelle: onvista.de' : 'Quelle: Financial Modeling Prep'}
-            >
+            <span className="num" title={`Quelle: ${sourceLabel}`}>
               {money(quote.price, info.row.original.currency, 2)}
-              {quote.source === 'onvista' && <span className="mute"> *</span>}
+              {isScraped && <span className="mute"> *</span>}
             </span>
           );
         },
@@ -296,8 +338,8 @@ export function PositionsPage({
       {quotesAsOf && (
         <p className={quotesError ? 'error small' : 'mute small'} role="status">
           Kurse Stand {timeFormat.format(quotesAsOf)} — verzögert, keine Realtime-Daten.
-          {Array.from(quotes.values()).some((q) => q.source === 'onvista') &&
-            ' * = onvista.de (kontofreier Fallback für Notierungen, die FMP nicht abdeckt).'}
+          {Array.from(quotes.values()).some((q) => q.source === 'onvista' || q.source === 'stockanalysis') &&
+            ' * = kontofreier Fallback (onvista.de oder stockanalysis.com) für Notierungen, die FMP nicht abdeckt.'}
           {quotesError && ` ${quotesError}`}
         </p>
       )}
