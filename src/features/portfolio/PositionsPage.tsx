@@ -92,7 +92,7 @@ export function PositionsPage({
 
       const needsFallback = positions.filter((p) => !result.has(p.id) && p.isin?.trim());
       for (let i = 0; i < needsFallback.length; i++) {
-        if (i > 0) await sleep(400);
+        if (i > 0) await sleep(800);
         const p = needsFallback[i]!;
         try {
           const { price } = await fetchOnvistaPrice(p.isin!.trim());

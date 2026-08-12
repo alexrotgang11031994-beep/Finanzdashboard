@@ -29,8 +29,9 @@ function parseGermanNumber(raw: string): number {
   return Number(raw.replace(/\./g, '').replace(',', '.'));
 }
 
-/** Holt den ersten in der onvista-Kurstabelle gelisteten Preis zu einer ISIN. */
-export async function fetchOnvistaPrice(isin: string): Promise<ScrapedQuote> {
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function fetchOnce(isin: string): Promise<ScrapedQuote> {
   const targetUrl = `https://www.onvista.de/aktien/snapshot.html?ISIN=${encodeURIComponent(isin)}`;
 
   let res: Response;
@@ -64,4 +65,25 @@ export async function fetchOnvistaPrice(isin: string): Promise<ScrapedQuote> {
   }
 
   return { price, exchange: rowMatch?.[1]?.trim() || 'onvista.de' };
+}
+
+/**
+ * Holt den ersten in der onvista-Kurstabelle gelisteten Preis zu einer ISIN.
+ *
+ * Bei einem Depot mit vielen Xetra-Positionen treffen kurz hintereinander
+ * mehrere Anfragen über denselben Lesedienst auf onvista.de — das kann
+ * vereinzelt zu einer unvollständigen Antwort führen (kein technischer
+ * Fehler, nur eine fehlende Kurstabelle), beobachtet bei >10 Abrufen
+ * innerhalb weniger Sekunden. Ein einzelner verzögerter Wiederholungsversuch
+ * behebt das zuverlässig, ohne bei einem echten, dauerhaften Problem (z. B.
+ * geänderte Seitenstruktur) endlos zu wiederholen.
+ */
+export async function fetchOnvistaPrice(isin: string): Promise<ScrapedQuote> {
+  try {
+    return await fetchOnce(isin);
+  } catch (err) {
+    if (!(err instanceof ScrapeError)) throw err;
+    await sleep(2500);
+    return fetchOnce(isin);
+  }
 }
