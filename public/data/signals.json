@@ -1,176 +1,399 @@
 {
- "generatedAt": "2026-08-12T20:07:16.200Z",
+ "generatedAt": "2026-08-12T20:15:53.116Z",
  "disclaimer": "Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. Keine Anlageberatung, keine eigene Empfehlung des Betreibers.",
  "errors": [
   "congress: kein QUIVER_API_KEY gesetzt, übersprungen",
   "aktionaer: RSS-Feed von deraktionaer.de abgeschaltet, Quelle deaktiviert"
  ],
+ "analysis": [
+  {
+   "term": "quantum computing",
+   "stageCount": 4,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Forschung",
+     "count": 4,
+     "newest": "2026-08-11"
+    },
+    {
+     "stage": "Entwickler",
+     "count": 2,
+     "newest": "2026-07-24"
+    },
+    {
+     "stage": "Staatsauftrag",
+     "count": 3,
+     "newest": "2026-02-04"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 30,
+     "newest": "2026-08-12"
+    }
+   ]
+  },
+  {
+   "term": "autonomous vehicle",
+   "stageCount": 4,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Forschung",
+     "count": 4,
+     "newest": "2026-08-10"
+    },
+    {
+     "stage": "Entwickler",
+     "count": 3,
+     "newest": "2026-05-28"
+    },
+    {
+     "stage": "Staatsauftrag",
+     "count": 3,
+     "newest": "2026-03-25"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 5,
+     "newest": "2026-08-10"
+    }
+   ]
+  },
+  {
+   "term": "rare earth",
+   "stageCount": 3,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Forschung",
+     "count": 4,
+     "newest": "2026-08-10"
+    },
+    {
+     "stage": "Staatsauftrag",
+     "count": 1,
+     "newest": "2026-05-07"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 23,
+     "newest": "2026-08-12"
+    }
+   ]
+  },
+  {
+   "term": "photonic",
+   "stageCount": 3,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Forschung",
+     "count": 5,
+     "newest": "2026-08-11"
+    },
+    {
+     "stage": "Staatsauftrag",
+     "count": 3,
+     "newest": "2026-08-07"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 4,
+     "newest": "2026-08-12"
+    }
+   ]
+  },
+  {
+   "term": "humanoid robot",
+   "stageCount": 3,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Forschung",
+     "count": 4,
+     "newest": "2026-08-10"
+    },
+    {
+     "stage": "Entwickler",
+     "count": 3,
+     "newest": "2026-07-16"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 1,
+     "newest": "2026-08-05"
+    }
+   ]
+  },
+  {
+   "term": "solid-state battery",
+   "stageCount": 3,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Forschung",
+     "count": 2,
+     "newest": "2026-08-07"
+    },
+    {
+     "stage": "Staatsauftrag",
+     "count": 1,
+     "newest": "2024-09-13"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 5,
+     "newest": "2026-08-11"
+    }
+   ]
+  },
+  {
+   "term": "small modular reactor",
+   "stageCount": 3,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Forschung",
+     "count": 1,
+     "newest": "2026-08-11"
+    },
+    {
+     "stage": "Staatsauftrag",
+     "count": 3,
+     "newest": "2026-04-30"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 4,
+     "newest": "2026-08-06"
+    }
+   ]
+  },
+  {
+   "term": "gene editing",
+   "stageCount": 2,
+   "totalStages": 4,
+   "stages": [
+    {
+     "stage": "Staatsauftrag",
+     "count": 3,
+     "newest": "2025-09-01"
+    },
+    {
+     "stage": "Pflichtmitteilung",
+     "count": 15,
+     "newest": "2026-08-12"
+    }
+   ]
+  }
+ ],
  "items": [
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Murry Stefan J. (0001587599) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1587599/000168316826006272/0001683168-26-006272-index.htm",
+   "title": "4 - Ribar Damian Andrew (0002142092) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2142092/000214209226000004/0002142092-26-000004-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - APPLIED OPTOELECTRONICS, INC. (0001158114) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826006272/0001683168-26-006272-index.htm",
+   "title": "4 - CASELLA WASTE SYSTEMS INC (0000911177) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/911177/000214209226000004/0002142092-26-000004-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - DNOW Inc. (0001599617) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1599617/000119312526346809/0001193125-26-346809-index.htm",
+   "title": "4 - Forthuber Frederick A. (0001901995) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1901995/000142390226000095/0001423902-26-000095-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Chang Raymond W (0001337685) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1337685/000119312526346809/0001193125-26-346809-index.htm",
+   "title": "4 - Western Midstream Partners, LP (0001423902) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1423902/000142390226000095/0001423902-26-000095-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Khan Ahmad A. (0001642452) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1642452/000119312526346812/0001193125-26-346812-index.htm",
+   "title": "4 - Latigo Biotherapeutics, Inc. (0002056611) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2056611/000123191926000869/0001231919-26-000869-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - KLA CORP (0000319201) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/319201/000119312526346812/0001193125-26-346812-index.htm",
+   "title": "4 - 5AM Opportunities II (GP), LLC (0001873515) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1873515/000123191926000869/0001231919-26-000869-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - WALLACE RICHARD P (0001196898) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1196898/000119312526346811/0001193125-26-346811-index.htm",
+   "title": "4 - 5AM Opportunities II, L.P. (0001844401) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1844401/000123191926000869/0001231919-26-000869-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - KLA CORP (0000319201) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/319201/000119312526346811/0001193125-26-346811-index.htm",
+   "title": "4 - 5AM Partners VI, LLC (0001829051) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1829051/000123191926000869/0001231919-26-000869-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - SKULE JEREMY (0001736565) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1736565/000119312526346810/0001193125-26-346810-index.htm",
+   "title": "4 - 5AM Ventures VI, L.P. (0001753037) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1753037/000123191926000869/0001231919-26-000869-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - NASDAQ, INC. (0001120193) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1120193/000119312526346810/0001193125-26-346810-index.htm",
+   "title": "4 - PARMAR KUSH (0001664281) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1664281/000123191926000869/0001231919-26-000869-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Leproust Emily M. (0001753655) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1753655/000121465926009994/0001214659-26-009994-index.htm",
+   "title": "4 - Schwab Andrew J. (0001598549) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1598549/000123191926000869/0001231919-26-000869-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Twist Bioscience Corp (0001581280) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1581280/000121465926009994/0001214659-26-009994-index.htm",
+   "title": "4 - Woodhouse Hope B (0001529759) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1529759/000119312526346871/0001193125-26-346871-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Tonucci Paolo (0002057942) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/2057942/000119312526346805/0001193125-26-346805-index.htm",
+   "title": "4 - MONRO, INC. (0000876427) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/876427/000119312526346871/0001193125-26-346871-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Marex Group Ltd (0001997464) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1997464/000119312526346805/0001193125-26-346805-index.htm",
+   "title": "4 - Mintz William B. (0002033015) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2033015/000203301526000006/0002033015-26-000006-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Griggs PC Nelson (0001622632) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1622632/000119312526346807/0001193125-26-346807-index.htm",
+   "title": "4 - Claritev Corp (0001793229) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1793229/000203301526000006/0002033015-26-000006-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - NASDAQ, INC. (0001120193) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1120193/000119312526346807/0001193125-26-346807-index.htm",
+   "title": "4 - Began Marc A (0001821352) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1821352/000080592826000099/0000805928-26-000099-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Cherechinsky David A (0001606577) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1606577/000119312526346808/0001193125-26-346808-index.htm",
+   "title": "4 - Axogen, Inc. (0000805928) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/805928/000080592826000099/0000805928-26-000099-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - DNOW Inc. (0001599617) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1599617/000119312526346808/0001193125-26-346808-index.htm",
+   "title": "4 - Wendell Amy McBride (0001400568) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1400568/000080592826000098/0000805928-26-000098-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Johnson Mark B (0001730024) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1730024/000119312526346804/0001193125-26-346804-index.htm",
+   "title": "4 - Axogen, Inc. (0000805928) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/805928/000080592826000098/0000805928-26-000098-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - DNOW Inc. (0001599617) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1599617/000119312526346804/0001193125-26-346804-index.htm",
+   "title": "4 - Prahm Jeremy (0001853905) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1853905/000185390526000024/0001853905-26-000024-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Hill Kathryn (0001533931) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1533931/000153393126000004/0001533931-26-000004-index.htm",
+   "title": "4 - Finance of America Companies Inc. (0001828937) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1828937/000185390526000024/0001853905-26-000024-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - PARK JAMES FRANKLIN (0001633554) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1633554/000095010326012245/0000950103-26-012245-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - GeoPark Ltd (0001464591) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1464591/000095010326012245/0000950103-26-012245-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - McGogney Connor (0002148390) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2148390/000214839026000004/0002148390-26-000004-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Criteo S.A. (0001576427) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1576427/000214839026000004/0002148390-26-000004-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - Murray Mark Christopher (0001800013) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1800013/000180001326000003/0001800013-26-000003-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
@@ -178,151 +401,111 @@
    "source": "SEC Form 4",
    "tier": "public",
    "title": "4 - Celanese Corp (0001306830) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1306830/000153393126000004/0001533931-26-000004-index.htm",
+   "url": "https://www.sec.gov/Archives/edgar/data/1306830/000180001326000003/0001800013-26-000003-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - BOURLA ALBERT (0001595703) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1595703/000122520826007083/0001225208-26-007083-index.htm",
+   "title": "4 - DeLuca Richard R. (0001421339) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1421339/000031015826000219/0000310158-26-000219-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - PFIZER INC (0000078003) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/78003/000122520826007083/0001225208-26-007083-index.htm",
+   "title": "4 - Merck & Co., Inc. (0000310158) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000219/0000310158-26-000219-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Mahoney Sean O (0001526192) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1526192/000119312526346801/0001193125-26-346801-index.htm",
+   "title": "4 - Kissire Deborah J. (0001648794) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1648794/000164879426000004/0001648794-26-000004-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Aptiv PLC (0001521332) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1521332/000119312526346801/0001193125-26-346801-index.htm",
+   "title": "4 - Celanese Corp (0001306830) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1306830/000164879426000004/0001648794-26-000004-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Anderson Dennis L II (0001640600) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1640600/000164060026000006/0001640600-26-000006-index.htm",
+   "title": "4 - Box Michael (0002130671) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2130671/000162828026056192/0001628280-26-056192-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - ARCBEST CORP /TX/ (0000894405) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/894405/000164060026000006/0001640600-26-000006-index.htm",
+   "title": "4 - SUJA LIFE, INC. (0001934114) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1934114/000162828026056192/0001628280-26-056192-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Giglietti Robert M. (0001953063) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1953063/000195306326000009/0001953063-26-000009-index.htm",
+   "title": "4 - TWILIO INC (0001447669) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1447669/000144766926000094/0001447669-26-000094-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - GENERAL ELECTRIC CO (0000040545) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/40545/000195306326000009/0001953063-26-000009-index.htm",
+   "title": "4 - ROTTENBERG ERIKA (0001284038) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1284038/000144766926000094/0001447669-26-000094-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Frontdoor, Inc. (0001727263) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1727263/000136211726000004/0001362117-26-000004-index.htm",
+   "title": "4 - Riley Jennifer (0002047607) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2047607/000204760726000008/0002047607-26-000008-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Fiarman Jeffrey (0001362117) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1362117/000136211726000004/0001362117-26-000004-index.htm",
+   "title": "4 - Avalo Therapeutics, Inc. (0001534120) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1534120/000204760726000008/0002047607-26-000008-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Thomas William R III (0001369011) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1369011/000001731326000119/0000017313-26-000119-index.htm",
+   "title": "4 - Doyle Mittie (0001918845) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1918845/000191884526000026/0001918845-26-000026-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - CAPITAL SOUTHWEST CORP (0000017313) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/17313/000001731326000119/0000017313-26-000119-index.htm",
+   "title": "4 - Avalo Therapeutics, Inc. (0001534120) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1534120/000191884526000026/0001918845-26-000026-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
    "source": "SEC Form 4",
    "tier": "public",
-   "title": "4 - Lennox Michael (0001716677) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1716677/000171667726000007/0001716677-26-000007-index.htm",
-   "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
-  },
-  {
-   "source": "SEC Form 4",
-   "tier": "public",
-   "title": "4 - Helmerich & Payne, Inc. (0000046765) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/46765/000171667726000007/0001716677-26-000007-index.htm",
-   "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
-  },
-  {
-   "source": "SEC Form 4",
-   "tier": "public",
-   "title": "4 - Iverson Evan (0002007420) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/2007420/000200742026000002/0002007420-26-000002-index.htm",
-   "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
-  },
-  {
-   "source": "SEC Form 4",
-   "tier": "public",
-   "title": "4 - Frontdoor, Inc. (0001727263) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1727263/000200742026000002/0002007420-26-000002-index.htm",
-   "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
-  },
-  {
-   "source": "SEC Form 4",
-   "tier": "public",
-   "title": "4 - Parker Melvin (0001617890) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1617890/000161789026000006/0001617890-26-000006-index.htm",
-   "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
-  },
-  {
-   "source": "SEC Form 4",
-   "tier": "public",
-   "title": "4 - V2X, Inc. (0001601548) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1601548/000161789026000006/0001617890-26-000006-index.htm",
+   "title": "4 - Shannon Elaine Mary (0002009368) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2009368/000149315226037352/0001493152-26-037352-index.htm",
    "date": "2026-08-12",
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
@@ -343,6 +526,42 @@
    "date": "2026-08-12",
    "url": "https://www.sec.gov/Archives/edgar/data/2132582/000119312526346328/0001193125-26-346328-index.htm",
    "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "ATRA",
+   "title": "8-K — Atara Biotherapeutics, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-12",
+   "url": "https://www.sec.gov/Archives/edgar/data/1604464/000119312526346857/0001193125-26-346857-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "ALLO",
+   "title": "8-K — Allogene Therapeutics, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-12",
+   "url": "https://www.sec.gov/Archives/edgar/data/1737287/000162828026056198/0001628280-26-056198-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "COHR",
+   "title": "8-K — COHERENT CORP.: „photonic\" erwähnt",
+   "date": "2026-08-12",
+   "url": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/0001193125-26-346860-index.htm",
+   "summary": "Der Begriff „photonic\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "RNGE",
+   "title": "8-K — RANGE IMPACT, INC.: „rare earth\" erwähnt",
+   "date": "2026-08-12",
+   "url": "https://www.sec.gov/Archives/edgar/data/1438943/000149315226037350/0001493152-26-037350-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   },
   {
    "source": "SEC Volltextsuche",

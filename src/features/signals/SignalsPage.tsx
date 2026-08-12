@@ -11,10 +11,24 @@ interface SignalItem {
   summary?: string;
 }
 
+interface TermStage {
+  stage: string;
+  count: number;
+  newest?: string | null;
+}
+
+interface TermAnalysis {
+  term: string;
+  stageCount: number;
+  totalStages: number;
+  stages: TermStage[];
+}
+
 interface SignalsPayload {
   generatedAt: string;
   disclaimer?: string;
   errors?: string[];
+  analysis?: TermAnalysis[];
   items: SignalItem[];
 }
 
@@ -101,6 +115,46 @@ export function SignalsPage() {
                   : `${payload.errors.length} Quellen konnten`}{' '}
                 beim letzten Lauf nicht abgerufen werden: {payload.errors.join(' · ')}
               </p>
+            )}
+
+            {payload.analysis && payload.analysis.length > 0 && (
+              <div className="notice" style={{ marginTop: 16 }}>
+                <h3 style={{ marginBottom: 4 }}>Belegdichte je Begriff</h3>
+                <p className="mute small">
+                  In wie vielen der vier Vorlaufstufen ein Begriff auftaucht, geordnet nach
+                  Vorlauf: Forschung → Entwickler → Staatsauftrag → Pflichtmitteilung. Das ist
+                  eine <strong>Auszählung, keine Prognose</strong>. Ein Begriff in vier Stufen ist
+                  breiter belegt als einer in zwei — mehr sagt die Zahl nicht. Zu Kurswirkungen
+                  ist die Fachliteratur ernüchternd: Ereignisstudien zu Staatsaufträgen messen
+                  Überrenditen von 0,4 bis 0,7 Prozent, teils ohne statistische Signifikanz.
+                </p>
+                <div className="tblwrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Begriff</th>
+                        <th>Stufen</th>
+                        <th>Verteilung</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {payload.analysis.map((a) => (
+                        <tr key={a.term}>
+                          <td>{a.term}</td>
+                          <td className="num">
+                            {a.stageCount} / {a.totalStages}
+                          </td>
+                          <td className="mute small">
+                            {a.stages.length === 0
+                              ? '–'
+                              : a.stages.map((s) => `${s.stage} (${s.count})`).join(' → ')}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             )}
 
             {payload.items.length === 0 ? (

@@ -10,7 +10,7 @@
  * Aufruf lokal:  SEC_USER_AGENT="Name mail@example.com" node scripts/fetch-signals.mjs
  */
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, readFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -484,6 +484,121 @@ async function safe(name, fn) {
   catch (e) { errors.push(`${name}: ${e.message}`); }
 }
 
+/* ------------------------------------------------------------------ */
+/* Monatsarchiv — so klein wie möglich                                  */
+/* ------------------------------------------------------------------ */
+/**
+ * Schreibt je Monat eine Datei mit Datum, Quelle, Titel und Link. Kurze
+ * Schlüssel (d/s/t/u) statt sprechender Namen, keine Zusammenfassungen, keine
+ * Einrückung: Die Zusammenfassung steht ohnehin in der Hauptdatei und ist der
+ * mit Abstand größte Teil eines Eintrags.
+ *
+ * Grund für die Trennung: signals.json wird bei jedem Lauf neu geschrieben und
+ * bleibt dadurch klein. Das Archiv wächst, aber nur um das Nötigste — und weil
+ * jeder Lauf committet wird, ist es zugleich der Nachweis, was wann angezeigt
+ * wurde (Aufzeichnungspflicht, siehe docs/RECHTLICHES.md).
+ */
+/**
+ * Vom Archiv ausgenommen. Form 4 liefert die zuletzt bei der SEC eingegangenen
+ * Meldungen quer über alle US-Unternehmen — bei jedem Lauf vierzig andere.
+ * Über einen Monat wären das rund achthundert Einträge ohne thematischen Bezug,
+ * die alles Übrige erdrücken würden.
+ *
+ * Das kostet keinen Nachweis: Der Workflow committet bei jedem Lauf die
+ * vollständige signals.json, damit ist die Git-Historie das lückenlose,
+ * zeitgestempelte Archiv (siehe docs/RECHTLICHES.md). Diese Dateien hier sind
+ * die lesbare Zusammenfassung obendrauf, nicht der Nachweis selbst.
+ */
+const ARCHIVE_EXCLUDED_SOURCES = new Set(['SEC Form 4']);
+
+async function writeMonthlyArchive() {
+  const byMonth = new Map();
+  for (const i of items) {
+    if (ARCHIVE_EXCLUDED_SOURCES.has(i.source)) continue;
+    const month = String(i.date || '').slice(0, 7);
+    if (!/^\d{4}-\d{2}$/.test(month)) continue;
+    if (!byMonth.has(month)) byMonth.set(month, []);
+    byMonth.get(month).push({ d: i.date, s: i.source, t: i.title, u: i.url || null });
+  }
+
+  for (const [month, fresh] of byMonth) {
+    const file = resolve(HERE, `../public/data/archive/${month}.json`);
+    let existing = [];
+    try {
+      existing = JSON.parse(await readFile(file, 'utf8'));
+    } catch { /* Monat noch nicht angelegt */ }
+
+    // Über den Link entdoppeln: derselbe Eintrag taucht bei täglichen Läufen
+    // sonst so oft auf, wie er im Rückschaufenster liegt.
+    const seen = new Set(existing.map((e) => e.u || e.t));
+    const merged = existing.concat(fresh.filter((e) => !seen.has(e.u || e.t)));
+    merged.sort((a, b) => String(b.d).localeCompare(String(a.d)));
+
+    await mkdir(dirname(file), { recursive: true });
+    await writeFile(file, JSON.stringify(merged), 'utf8');
+    console.log(`Archiv ${month}: ${merged.length} Eintraege (${fresh.length} geprueft)`);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reifegrad je Technologiebegriff                                      */
+/* ------------------------------------------------------------------ */
+/**
+ * Zählt, in wie vielen der fünf Stufen ein Begriff auftaucht, und wie frisch
+ * der jüngste Beleg je Stufe ist. Die Stufen sind nach Vorlauf geordnet:
+ * Forschung → Entwickler → Staatsauftrag → Pflichtmitteilung → Insider.
+ *
+ * Was das ist: eine Auszählung. Ein Begriff, der in vier Stufen auftaucht, ist
+ * breiter belegt als einer in einer — mehr sagt die Zahl nicht.
+ *
+ * Was das ausdrücklich nicht ist: eine Kursprognose. Die Literatur zu genau
+ * diesen Signalarten ist ernüchternd konkret. Für Ankündigungen von
+ * Staatsaufträgen messen Ereignisstudien Überrenditen von 0,4 bis 0,7 Prozent,
+ * teils ohne statistische Signifikanz. Patentbasierte Kennzahlen wirken laut
+ * mehreren Arbeiten länger, bis etwa zwölf Monate. Beides sind kleine Effekte
+ * im Mittel über viele Fälle — daraus lässt sich für einen Einzelwert nichts
+ * ableiten. Deshalb liefert diese Funktion Belegdichte, keine Erwartung.
+ */
+const STAGES = [
+  ['arXiv', 'Forschung'],
+  ['GitHub', 'Entwickler'],
+  ['USAspending', 'Staatsauftrag'],
+  ['SEC Volltextsuche', 'Pflichtmitteilung'],
+];
+
+function buildTermAnalysis() {
+  const out = [];
+
+  for (const term of TECH_TERMS) {
+    const needle = term.toLowerCase();
+    const stages = [];
+
+    for (const [source, label] of STAGES) {
+      const hits = items.filter(
+        (i) => i.source === source && String(i.title).toLowerCase().includes(needle),
+      );
+      if (!hits.length) continue;
+      const newest = hits
+        .map((h) => h.date)
+        .filter(Boolean)
+        .sort((a, b) => String(b).localeCompare(String(a)))[0] ?? null;
+      stages.push({ stage: label, count: hits.length, newest });
+    }
+
+    out.push({
+      term,
+      stageCount: stages.length,
+      totalStages: STAGES.length,
+      stages,
+    });
+  }
+
+  // Nach Belegbreite sortieren, bei Gleichstand nach Trefferzahl.
+  out.sort((a, b) => b.stageCount - a.stageCount
+    || b.stages.reduce((s, x) => s + x.count, 0) - a.stages.reduce((s, x) => s + x.count, 0));
+  return out;
+}
+
 async function main() {
   await safe('sec-form4', secForm4);
   await safe('edgar-volltext', edgarFullText);
@@ -507,6 +622,7 @@ async function main() {
     disclaimer: 'Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. '
               + 'Keine Anlageberatung, keine eigene Empfehlung des Betreibers.',
     errors,
+    analysis: buildTermAnalysis(),
     // Grenze so gewählt, dass keine Quelle eine andere verdrängt: Form 4 (40)
     // plus Volltextsuche (~80) plus arXiv (max. 32) passen zusammen hinein.
     // Bei mehr Begriffen mitwachsen lassen, sonst fällt still die letzte
@@ -517,6 +633,9 @@ async function main() {
   await mkdir(dirname(OUT), { recursive: true });
   await writeFile(OUT, JSON.stringify(payload, null, 1), 'utf8');
   console.log(`${payload.items.length} Eintraege geschrieben nach ${OUT}`);
+
+  await writeMonthlyArchive();
+
   if (errors.length) console.warn('Warnungen:\n  ' + errors.join('\n  '));
 }
 
