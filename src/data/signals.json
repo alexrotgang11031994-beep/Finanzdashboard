@@ -1,0 +1,9 @@
+{
+ "generatedAt": "2026-08-12T07:53:54.202Z",
+ "disclaimer": "Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. Keine Anlageberatung, keine eigene Empfehlung des Betreibers.",
+ "errors": [
+  "congress: kein QUIVER_API_KEY gesetzt, übersprungen",
+  "aktionaer: Der Aktionär HTTP 404"
+ ],
+ "items": []
+}
