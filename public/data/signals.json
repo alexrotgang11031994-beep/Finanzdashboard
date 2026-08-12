@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-08-12T19:47:58.470Z",
+ "generatedAt": "2026-08-12T19:52:10.468Z",
  "disclaimer": "Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. Keine Anlageberatung, keine eigene Empfehlung des Betreibers.",
  "errors": [
   "congress: kein QUIVER_API_KEY gesetzt, übersprungen",
@@ -390,6 +390,78 @@
    "summary": "Der Begriff „photonic\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   },
   {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Projection measurement of the comb basis through free-electron-photon interactions — „quantum computing\"",
+   "url": "http://arxiv.org/abs/2608.10831v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Zihang Zou, Feng-Xiao Sun, Yunquan Liu u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Optimal Stratification of a Sampling Frame: A Comparative Study of Classical, Quantum, and Quantum-Inspired Approaches — „quantum computing\"",
+   "url": "http://arxiv.org/abs/2608.10787v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Marco Ballin, Giulio Barcaroli. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Quantum Computing for Industrial Electromagnetics: Applicability and Case Studies in Solving Maxwell's Equations — „quantum computing\"",
+   "url": "http://arxiv.org/abs/2608.10671v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Francesco Turro, Marco Maronese, Daniele Dragoni. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Generating GKP states using quantum dots inside a strongly coupled cavity — „quantum computing\"",
+   "url": "http://arxiv.org/abs/2608.10604v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Viswatma Kamath, Ravi Mehta, Biman Chattopadhyay u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Techno-Economic Boundary Analysis of Small Modular Reactor Cogeneration for Hyperscale Data Center IT and Cooling Loads — „small modular reactor\"",
+   "url": "http://arxiv.org/abs/2608.10999v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Honglin Li, Buxin She, Jie Zhang. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Eclipses by Artificial Satellites to Measure the Angular Sizes of Stars — „photonic\"",
+   "url": "http://arxiv.org/abs/2608.11161v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Leo W. H. Fung, Albert Wai Kit Lau, Richard Massey u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Robust CHSH Self-Testing with Finite-Energy GKP States — „photonic\"",
+   "url": "http://arxiv.org/abs/2608.11122v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Farzin Salek, Masahito Hayashi. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "High-dimensional Supermode Photonics Enabled by Hierarchical Supersymmetric Transformation — „photonic\"",
+   "url": "http://arxiv.org/abs/2608.11099v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Yuan Zhong, Kaile Chen, Qi Lu u. a. (11). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Spin Splitter without Spin-Split Bands: A Reconfigurable Altermagnetic Texture — „photonic\"",
+   "url": "http://arxiv.org/abs/2608.10958v1",
+   "date": "2026-08-11",
+   "summary": "Preprint von Bin Xi, Jie Lu, Qiang Luo u. a. (7). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
    "source": "SEC Volltextsuche",
    "tier": "public",
    "ticker": "QUBT",
@@ -498,6 +570,78 @@
    "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   },
   {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Efficient Real-World Online Reinforcement Learning for Robot Manipulation via Centralized Training and Critic Decomposition — „humanoid robot\"",
+   "url": "http://arxiv.org/abs/2608.09762v1",
+   "date": "2026-08-10",
+   "summary": "Preprint von Changhao Li, Yifang Zhang, Heng Zhang u. a. (9). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Energy-efficient spin Hall nano-oscillators using CoGd ferrimagnets — „rare earth\"",
+   "url": "http://arxiv.org/abs/2608.09021v1",
+   "date": "2026-08-10",
+   "summary": "Preprint von Jiayu Lei, Raghav Sharma, Shishun Zhao u. a. (8). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Towards Collaborative Joint Perception and Prediction: Framework, Baseline Evaluation, and Deployment Perspectives — „autonomous vehicle\"",
+   "url": "http://arxiv.org/abs/2608.09541v1",
+   "date": "2026-08-10",
+   "summary": "Preprint von Lei Wan, Hannan Ejaz Keen, Alexey Vinel. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "CRUISE: Vision-Language Model-Guided Uncertainty-Aware Cross-Modal Sensor Fusion for Robust Autonomous Driving — „autonomous vehicle\"",
+   "url": "http://arxiv.org/abs/2608.09202v1",
+   "date": "2026-08-10",
+   "summary": "Preprint von Junyao Wang, Yulin Xu, Yu Li u. a. (5). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Distilling Vision-Language Models for Robust Traffic Sign Perception in Autonomous Vehicles — „autonomous vehicle\"",
+   "url": "http://arxiv.org/abs/2608.08815v1",
+   "date": "2026-08-09",
+   "summary": "Preprint von Pedram MohajerAnsari, Amir Salarpour, Mert D. Pesé. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "The Impact of Operational-Data Fidelity when Assessing Safety-Critical Autonomous-Vehicle Software — „autonomous vehicle\"",
+   "url": "http://arxiv.org/abs/2608.10025v1",
+   "date": "2026-08-09",
+   "summary": "Preprint von Kizito Salako, Rabiu Tsoho Muhammad. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Pressure-Induced Stacking Disorder and Suppression of Long-Range Sm-type Order in Medium-Entropy Rare-Earth Alloys — „rare earth\"",
+   "url": "http://arxiv.org/abs/2608.08351v1",
+   "date": "2026-08-08",
+   "summary": "Preprint von Raimundas Sereika, Matthew P. Clay, Kallol Chakrabarty u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Millisecond optical coherence and strong collective coupling in an integrated telecom rare-earth photonic platform — „rare earth\"",
+   "url": "http://arxiv.org/abs/2608.08221v1",
+   "date": "2026-08-08",
+   "summary": "Preprint von Kah Jen Wo, Pavel A. Dmitriev, Karthik Dasigi u. a. (5). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "All-electrical Coherent Control of a Single Rare-earth Spin Qubit — „rare earth\"",
+   "url": "http://arxiv.org/abs/2608.07929v1",
+   "date": "2026-08-08",
+   "summary": "Preprint von Yaowu Liu, Dasom Choi, Stefano Reale u. a. (11). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
    "source": "SEC Volltextsuche",
    "tier": "public",
    "ticker": "USAR",
@@ -514,6 +658,22 @@
    "date": "2026-08-07",
    "url": "https://www.sec.gov/Archives/edgar/data/2102713/000119312526340529/0001193125-26-340529-index.htm",
    "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "A Haptic Robot Finger Designed for Guqin Instrument Playing — „humanoid robot\"",
+   "url": "http://arxiv.org/abs/2608.07002v1",
+   "date": "2026-08-07",
+   "summary": "Preprint von Tianwei Zhang, Hanming Yan, Yang Yang. Ziya Wang. Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Physics-Grounded Materials Artificial Intelligence for Reliable Materials Discovery — „solid-state battery\"",
+   "url": "http://arxiv.org/abs/2608.06680v1",
+   "date": "2026-08-07",
+   "summary": "Preprint von Yuhang Wang, Qian Wang, Seong-Hoon Jang u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
   },
   {
    "source": "SEC Volltextsuche",
@@ -649,6 +809,14 @@
    "date": "2026-08-06",
    "url": "https://www.sec.gov/Archives/edgar/data/1853138/000162828026054331/0001628280-26-054331-index.htm",
    "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "KILVO: Kinematic-Inertial-LiDAR-Visual Odometry with Robust Multimodal Adaptation for Humanoid Robots — „humanoid robot\"",
+   "url": "http://arxiv.org/abs/2608.05647v1",
+   "date": "2026-08-06",
+   "summary": "Preprint von Jixin Gao, Fucheng Liu, Teng Zhang u. a. (4). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
   },
   {
    "source": "SEC Volltextsuche",
@@ -822,6 +990,14 @@
    "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   },
   {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation — „humanoid robot\"",
+   "url": "http://arxiv.org/abs/2608.03387v2",
+   "date": "2026-08-04",
+   "summary": "Preprint von Shuliang He, Shuai Wang, Bo Yue u. a. (6). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
    "source": "SEC Volltextsuche",
    "tier": "public",
    "ticker": "QBTS",
@@ -975,6 +1151,14 @@
    "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   },
   {
+   "source": "arXiv",
+   "tier": "public",
+   "title": "Automating the analysis of micron-scale synchrotron diffraction data on inhomogeneous polycrystalline samples: a solid oxide electrolysis cell case study — „solid-state battery\"",
+   "url": "http://arxiv.org/abs/2607.28859v1",
+   "date": "2026-07-30",
+   "summary": "Preprint von Liam A. V. Nagle-Cocco, Christopher A. Crain, Michael J. Dzara u. a. (9). Nicht begutachtet und ohne Bezug zu einem börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten Arbeiten werden nie ein Produkt."
+  },
+  {
    "source": "SEC Volltextsuche",
    "tier": "public",
    "ticker": "MORN",
@@ -1045,6 +1229,33 @@
    "date": "2026-07-29",
    "url": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000028/0000093556-26-000028-index.htm",
    "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "TROX",
+   "title": "8-K — Tronox Holdings plc: „rare earth\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1530804/000114036126030058/0001140361-26-030058-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "BTU",
+   "title": "8-K — PEABODY ENERGY CORP: „rare earth\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1064728/000106472826000038/0001064728-26-000038-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Aurora Innovation, Inc.: „autonomous vehicle\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1828108/000182810826000075/0001828108-26-000075-index.htm",
+   "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   }
  ]
 }

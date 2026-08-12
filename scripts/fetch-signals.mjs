@@ -195,7 +195,71 @@ async function edgarFullText() {
 }
 
 /* ------------------------------------------------------------------ */
-/* 4. Presse-Feeds — ausschließlich Überschrift und Link               */
+/* 4. arXiv — Forschung, die früheste Stufe mit dem meisten Rauschen    */
+/* ------------------------------------------------------------------ */
+/**
+ * Sucht dieselben TECH_TERMS wie die EDGAR-Volltextsuche, nur eine Stufe
+ * früher: hier steht die Forschung, dort die Pflichtmitteilung. Derselbe
+ * Begriff in beiden Quellen ergibt zwei Zeitpunkte auf einer Kette —
+ * Veröffentlichung der Idee und erste Erwähnung durch ein Unternehmen.
+ *
+ * Der Preis für diesen Vorlauf ist die Trefferquote: allein "quantum
+ * computing" liefert über hundert Arbeiten in vierzehn Tagen, und die
+ * allermeisten werden nie ein Produkt. Deshalb eine harte Obergrenze je
+ * Begriff — diese Quelle soll anstoßen, nicht die Liste fluten.
+ *
+ * arXiv bittet in seinen Nutzungsbedingungen um drei Sekunden Abstand
+ * zwischen Anfragen. Das wird hier eingehalten.
+ */
+const ARXIV_PER_TERM = 4;
+
+async function arxiv() {
+  const to = new Date();
+  const from = new Date(to.getTime() - LOOKBACK_DAYS * 86400 * 1000);
+  const stamp = (d) => d.toISOString().slice(0, 10).replace(/-/g, '') + '0000';
+
+  for (const term of TECH_TERMS) {
+    const query = `all:"${term}" AND submittedDate:[${stamp(from)} TO ${stamp(to)}]`;
+    const url = 'http://export.arxiv.org/api/query'
+      + `?search_query=${encodeURIComponent(query)}`
+      + `&sortBy=submittedDate&sortOrder=descending&max_results=${ARXIV_PER_TERM}`;
+
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const xml = await res.text();
+
+      for (const entry of xml.split('<entry>').slice(1)) {
+        const title = decode(pick(entry, 'title')).replace(/\s+/g, ' ').trim();
+        const link = pick(entry, 'id');
+        const published = pick(entry, 'published');
+        if (!title) continue;
+
+        const authors = [...entry.matchAll(/<name>(.*?)<\/name>/g)].map((m) => decode(m[1]));
+        const shown = authors.slice(0, 3).join(', ')
+          + (authors.length > 3 ? ` u. a. (${authors.length})` : '');
+
+        items.push({
+          source: 'arXiv',
+          tier: 'public',
+          title: `${title} — „${term}"`,
+          url: link,
+          date: (published || '').slice(0, 10),
+          summary: `Preprint von ${shown}. Nicht begutachtet und ohne Bezug zu einem `
+                 + 'börsennotierten Unternehmen. Früheste Stufe der Kette: die meisten '
+                 + 'Arbeiten werden nie ein Produkt.',
+        });
+      }
+    } catch (e) {
+      errors.push(`arxiv "${term}": ${e.message}`);
+    }
+
+    await new Promise((r) => setTimeout(r, 3000));
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Presse-Feeds — ausschließlich Überschrift und Link               */
 /* ------------------------------------------------------------------ */
 async function rss(sourceLabel, feedUrl, limit = 12) {
   const res = await fetch(feedUrl, { headers: { 'User-Agent': UA } });
@@ -238,6 +302,7 @@ async function safe(name, fn) {
 async function main() {
   await safe('sec-form4', secForm4);
   await safe('edgar-volltext', edgarFullText);
+  await safe('arxiv', arxiv);
   await safe('congress', congress);
   // Der Aktionär: deraktionaer.de hat den RSS-Feed abgeschaltet — /rss, /feed,
   // /rss.xml und Varianten liefern alle 404, und die Startseite enthält kein
@@ -255,7 +320,11 @@ async function main() {
     disclaimer: 'Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. '
               + 'Keine Anlageberatung, keine eigene Empfehlung des Betreibers.',
     errors,
-    items: items.slice(0, 120),
+    // Grenze so gewählt, dass keine Quelle eine andere verdrängt: Form 4 (40)
+    // plus Volltextsuche (~80) plus arXiv (max. 32) passen zusammen hinein.
+    // Bei mehr Begriffen mitwachsen lassen, sonst fällt still die letzte
+    // Quelle heraus — sortiert wird nach Datum, nicht nach Wichtigkeit.
+    items: items.slice(0, 200),
   };
 
   await mkdir(dirname(OUT), { recursive: true });

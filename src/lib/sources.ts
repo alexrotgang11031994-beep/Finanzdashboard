@@ -59,6 +59,17 @@ export const SOURCES: SourceDef[] = [
       'Eine Erwähnung sagt nichts über Umfang oder Bedeutung: sie ist ein Anlass zum Nachlesen.',
   },
   {
+    id: 'arxiv',
+    label: 'arXiv — Forschungs-Preprints',
+    tier: 'public',
+    enabled: true,
+    note:
+      'Dieselben Technologiebegriffe wie die Volltextsuche, nur eine Stufe früher: hier steht die ' +
+      'Forschung, dort die Pflichtmitteilung. Preprints sind nicht begutachtet und haben keinen ' +
+      'Bezug zu einem börsennotierten Unternehmen. Größter Vorlauf, höchste Fehlerquote — die ' +
+      'allermeisten Arbeiten werden nie ein Produkt. Anstoß zum Lesen, kein Signal.',
+  },
+  {
     id: 'congress',
     label: 'US-Kongress — STOCK Act',
     tier: 'licensed',
