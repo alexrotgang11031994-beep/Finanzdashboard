@@ -171,9 +171,13 @@ export function DataPage({ data, reload }: { data: PortfolioData; reload: () => 
             Financial Modeling Prep
           </a>{' '}
           angefragt — direkt aus diesem Browser, es gibt keinen Server dazwischen. Ein kostenloser
-          Schlüssel erlaubt 250 Abfragen pro Tag, Kurse mit Verzögerung; nicht jede Position an
-          einer deutschen Börse ist im kostenlosen Plan erfasst. Der Schlüssel liegt ausschließlich
-          in diesem Browser und geht nur an financialmodelingprep.com — nirgendwo sonst hin.
+          Schlüssel erlaubt 250 Abfragen pro Tag, Kurse mit Verzögerung, ein Aufruf pro Position
+          bei „Kurse aktualisieren" (Sammelabruf ist kostenpflichtig). Der kostenlose Plan sperrt
+          gezielte Symbole — welche genau, ist nicht dokumentiert. Fast immer betroffen sind
+          Auslandsnotierungen wie Xetra (also die meisten deutschen Aktien direkt); bei US-ADRs
+          (z. B. SAP → Ticker „SAP" an der NYSE statt „SAP.DE") klappt es meist. Vereinzelt fehlen
+          aber auch reine US-Werte. Der Schlüssel liegt ausschließlich in diesem Browser und geht
+          nur an financialmodelingprep.com — nirgendwo sonst hin.
         </p>
         <label htmlFor="fmp-key">API-Schlüssel</label>
         <input

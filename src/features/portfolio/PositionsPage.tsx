@@ -60,9 +60,15 @@ export function PositionsPage({
     }
     setQuotesBusy(true);
     try {
-      const result = await getQuotes(tickers);
+      const { quotes: result, failed } = await getQuotes(tickers);
       setQuotes(result);
       setQuotesAsOf(new Date());
+      if (failed.length > 0) {
+        setQuotesError(
+          `${failed.length} von ${tickers.length} Kursen nicht verfügbar (${failed.join(', ')}) — ` +
+            'oft Notierungen außerhalb der USA, die der kostenlose Plan sperrt.',
+        );
+      }
     } catch (err) {
       setQuotesError(err instanceof MarketDataError ? err.message : 'Kursabruf fehlgeschlagen.');
     } finally {
