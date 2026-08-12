@@ -1,11 +1,27 @@
 {
- "generatedAt": "2026-08-12T19:36:00.709Z",
+ "generatedAt": "2026-08-12T19:47:58.470Z",
  "disclaimer": "Fremde Inhalte, unveraendert wiedergegeben mit Quelle und Datum. Keine Anlageberatung, keine eigene Empfehlung des Betreibers.",
  "errors": [
   "congress: kein QUIVER_API_KEY gesetzt, übersprungen",
   "aktionaer: RSS-Feed von deraktionaer.de abgeschaltet, Quelle deaktiviert"
  ],
  "items": [
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - BLUME JESSICA L. (0001671250) (Reporting)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1671250/000008106126000091/0000081061-26-000091-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
+  {
+   "source": "SEC Form 4",
+   "tier": "public",
+   "title": "4 - PUBLIX SUPER MARKETS INC (0000081061) (Issuer)",
+   "url": "https://www.sec.gov/Archives/edgar/data/81061/000008106126000091/0000081061-26-000091-index.htm",
+   "date": "2026-08-12",
+   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+  },
   {
    "source": "SEC Form 4",
    "tier": "public",
@@ -311,20 +327,724 @@
    "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
   },
   {
-   "source": "SEC Form 4",
+   "source": "SEC Volltextsuche",
    "tier": "public",
-   "title": "4 - HPS Real Assets Lending Co LP (0002089975) (Issuer)",
-   "url": "https://www.sec.gov/Archives/edgar/data/2089975/000119312526346520/0001193125-26-346520-index.htm",
+   "ticker": null,
+   "title": "8-K — Zapata Quantum, Inc.: „quantum computing\" erwähnt",
    "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+   "url": "https://www.sec.gov/Archives/edgar/data/1843714/000168316826006225/0001683168-26-006225-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   },
   {
-   "source": "SEC Form 4",
+   "source": "SEC Volltextsuche",
    "tier": "public",
-   "title": "4 - Lawson Hugh J (0001294783) (Reporting)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1294783/000119312526346520/0001193125-26-346520-index.htm",
+   "ticker": null,
+   "title": "S-1/A — Lyntris Inc.: „quantum computing\" erwähnt",
    "date": "2026-08-12",
-   "summary": "Meldepflichtiges Geschäft eines Unternehmensinsiders. Frist: zwei Handelstage."
+   "url": "https://www.sec.gov/Archives/edgar/data/2132582/000119312526346328/0001193125-26-346328-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "QNT",
+   "title": "8-K — Quantinuum Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-11",
+   "url": "https://www.sec.gov/Archives/edgar/data/2110105/000162828026055699/0001628280-26-055699-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Factorial Energy Inc.: „solid-state battery\" erwähnt",
+   "date": "2026-08-11",
+   "url": "https://www.sec.gov/Archives/edgar/data/2049662/000162828026055695/0001628280-26-055695-index.htm",
+   "summary": "Der Begriff „solid-state battery\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "MVST",
+   "title": "8-K — Microvast Holdings, Inc.: „solid-state battery\" erwähnt",
+   "date": "2026-08-11",
+   "url": "https://www.sec.gov/Archives/edgar/data/1760689/000162828026055471/0001628280-26-055471-index.htm",
+   "summary": "Der Begriff „solid-state battery\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "HBIO",
+   "title": "8-K — HARVARD BIOSCIENCE INC: „gene editing\" erwähnt",
+   "date": "2026-08-11",
+   "url": "https://www.sec.gov/Archives/edgar/data/1123494/000117184326005406/0001171843-26-005406-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "LITE",
+   "title": "8-K — Lumentum Holdings Inc.: „photonic\" erwähnt",
+   "date": "2026-08-11",
+   "url": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/0001628280-26-055726-index.htm",
+   "summary": "Der Begriff „photonic\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "QUBT",
+   "title": "8-K — Quantum Computing Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/1758009/000121390026087267/0001213900-26-087267-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "KOPN",
+   "title": "8-K — KOPIN CORP: „quantum computing\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/771266/000149315226036857/0001493152-26-036857-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "FETH",
+   "title": "8-K — Fidelity Ethereum Fund: „quantum computing\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/2000046/000119312526342079/0001193125-26-342079-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1/A — Lyntris Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/2132582/000119312526341244/0001193125-26-341244-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1 — Gores Holdings XII, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/2147267/000119312526342392/0001193125-26-342392-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "MGX",
+   "title": "8-K — Metagenomi Therapeutics, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/1785279/000119312526342388/0001193125-26-342388-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "USAR",
+   "title": "8-K — USA Rare Earth, Inc.: „rare earth\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/1970622/000197062226000056/0001970622-26-000056-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "EMAT",
+   "title": "8-K — Evolution Metals & Technologies Corp.: „rare earth\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/1866226/000121390026087062/0001213900-26-087062-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "ARQ",
+   "title": "8-K — Arq, Inc.: „rare earth\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/1515156/000151515626000116/0001515156-26-000116-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1 — Inflection Point Acquisition Corp. VIII: „rare earth\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/2146310/000121390026086901/0001213900-26-086901-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "AITX",
+   "title": "8-K — Artificial Intelligence Technology Solutions Inc.: „autonomous vehicle\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/1498148/000106299326004106/0001062993-26-004106-index.htm",
+   "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Archer Aviation Inc.: „autonomous vehicle\" erwähnt",
+   "date": "2026-08-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/1824502/000110465926093056/0001104659-26-093056-index.htm",
+   "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "USAR",
+   "title": "8-K — USA Rare Earth, Inc.: „rare earth\" erwähnt",
+   "date": "2026-08-07",
+   "url": "https://www.sec.gov/Archives/edgar/data/1970622/000121390026086814/0001213900-26-086814-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Kensington Capital Acquisition Corp. VI: „rare earth\" erwähnt",
+   "date": "2026-08-07",
+   "url": "https://www.sec.gov/Archives/edgar/data/2102713/000119312526340529/0001193125-26-340529-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "QBTS",
+   "title": "8-K — D-Wave Quantum Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1907982/000190798226000127/0001907982-26-000127-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Rigetti Computing, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1838359/000110465926091979/0001104659-26-091979-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Bleichroeder Acquisition Corp. II: „quantum computing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/2088295/000121390026085936/0001213900-26-085936-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Dragonfly Energy Holdings Corp.: „solid-state battery\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1847986/000149315226036337/0001493152-26-036337-index.htm",
+   "summary": "Der Begriff „solid-state battery\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "LEU",
+   "title": "8-K — CENTRUS ENERGY CORP: „small modular reactor\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1065059/000162828026053897/0001628280-26-053897-index.htm",
+   "summary": "Der Begriff „small modular reactor\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "DTIL",
+   "title": "8-K — PRECISION BIOSCIENCES INC: „gene editing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1357874/000162828026053836/0001628280-26-053836-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "NTLA",
+   "title": "8-K — Intellia Therapeutics, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1652130/000119312526336772/0001193125-26-336772-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "PRME",
+   "title": "8-K — Prime Medicine, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1894562/000162828026053878/0001628280-26-053878-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "ARCT",
+   "title": "8-K — Arcturus Therapeutics Holdings Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1768224/000119380526001039/0001193805-26-001039-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "OCGN",
+   "title": "8-K — Ocugen, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1372299/000110465926091691/0001104659-26-091691-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "LCTX",
+   "title": "8-K — Lineage Cell Therapeutics, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/876343/000119312526338020/0001193125-26-338020-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "MP",
+   "title": "8-K — MP Materials Corp. / DE: „rare earth\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000047/0001801368-26-000047-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "CNR",
+   "title": "8-K — Core Natural Resources, Inc.: „rare earth\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1710366/000171036626000053/0001710366-26-000053-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "TROX",
+   "title": "8-K — Tronox Holdings plc: „rare earth\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1530804/000114036126031551/0001140361-26-031551-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Kodiak AI, Inc.: „autonomous vehicle\" erwähnt",
+   "date": "2026-08-06",
+   "url": "https://www.sec.gov/Archives/edgar/data/1853138/000162828026054331/0001628280-26-054331-index.htm",
+   "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "QBTS",
+   "title": "8-K — D-Wave Quantum Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1907982/000190798226000123/0001907982-26-000123-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — IonQ, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526335040/0001193125-26-335040-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "LSH",
+   "title": "8-K — Quanome Technologies, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026085554/0001213900-26-085554-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "FCCN",
+   "title": "S-1/A — SPECTRAL CAPITAL Corp: „quantum computing\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1131903/000121390026085798/0001213900-26-085798-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "BNBX",
+   "title": "S-1 — BNB PLUS CORP.: „quantum computing\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/744452/000110465926091228/0001104659-26-091228-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "DIOD",
+   "title": "8-K — DIODES INC /DEL/: „humanoid robot\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/29002/000119312526335408/0001193125-26-335408-index.htm",
+   "summary": "Der Begriff „humanoid robot\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "SEI",
+   "title": "8-K — Solaris Energy Infrastructure, Inc.: „small modular reactor\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1697500/000162828026053383/0001628280-26-053383-index.htm",
+   "summary": "Der Begriff „small modular reactor\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Eagle Nuclear Energy Corp.: „small modular reactor\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/2089283/000110465926091278/0001104659-26-091278-index.htm",
+   "summary": "Der Begriff „small modular reactor\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "SMR",
+   "title": "8-K — NUSCALE POWER Corp: „small modular reactor\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1822966/000182296626000086/0001822966-26-000086-index.htm",
+   "summary": "Der Begriff „small modular reactor\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "EDIT",
+   "title": "8-K — Editas Medicine, Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1650664/000165066426000082/0001650664-26-000082-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "RRX",
+   "title": "8-K — REGAL REXNORD CORP: „rare earth\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/82811/000008281126000226/0000082811-26-000226-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "MSI",
+   "title": "8-K — Motorola Solutions, Inc.: „rare earth\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/68505/000006850526000027/0000068505-26-000027-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "EVGO",
+   "title": "8-K — EVgo Inc.: „autonomous vehicle\" erwähnt",
+   "date": "2026-08-05",
+   "url": "https://www.sec.gov/Archives/edgar/data/1821159/000182115926000017/0001821159-26-000017-index.htm",
+   "summary": "Der Begriff „autonomous vehicle\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "ASPI",
+   "title": "8-K — ASP Isotopes Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-04",
+   "url": "https://www.sec.gov/Archives/edgar/data/1921865/000119312526331596/0001193125-26-331596-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Solid Power, Inc.: „solid-state battery\" erwähnt",
+   "date": "2026-08-04",
+   "url": "https://www.sec.gov/Archives/edgar/data/1844862/000110465926090369/0001104659-26-090369-index.htm",
+   "summary": "Der Begriff „solid-state battery\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "BEAM",
+   "title": "8-K — Beam Therapeutics Inc.: „gene editing\" erwähnt",
+   "date": "2026-08-04",
+   "url": "https://www.sec.gov/Archives/edgar/data/1745999/000119312526331522/0001193125-26-331522-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Ramaco Resources, Inc.: „rare earth\" erwähnt",
+   "date": "2026-08-04",
+   "url": "https://www.sec.gov/Archives/edgar/data/1687187/000110465926090417/0001104659-26-090417-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "LCID",
+   "title": "8-K — Lucid Group, Inc.: „rare earth\" erwähnt",
+   "date": "2026-08-04",
+   "url": "https://www.sec.gov/Archives/edgar/data/1811210/000162828026052548/0001628280-26-052548-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "HCAX",
+   "title": "S-1/A — Hall Chadwick Acquisition Corp II: „rare earth\" erwähnt",
+   "date": "2026-08-04",
+   "url": "https://www.sec.gov/Archives/edgar/data/2130219/000182912626008335/0001829126-26-008335-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "QBTS",
+   "title": "8-K — D-Wave Quantum Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-03",
+   "url": "https://www.sec.gov/Archives/edgar/data/1907982/000190798226000119/0001907982-26-000119-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1/A — Bitwise NEAR ETF: „quantum computing\" erwähnt",
+   "date": "2026-08-03",
+   "url": "https://www.sec.gov/Archives/edgar/data/2067111/000119312526329988/0001193125-26-329988-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1 — 1776 Acquisition Corp: „quantum computing\" erwähnt",
+   "date": "2026-08-03",
+   "url": "https://www.sec.gov/Archives/edgar/data/2115818/000121390026084648/0001213900-26-084648-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1 — GX Acquisition Corp. III/Cayman: „quantum computing\" erwähnt",
+   "date": "2026-08-03",
+   "url": "https://www.sec.gov/Archives/edgar/data/2145409/000118518526003214/0001185185-26-003214-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1/A — Lyntris Inc.: „quantum computing\" erwähnt",
+   "date": "2026-08-03",
+   "url": "https://www.sec.gov/Archives/edgar/data/2132582/000119312526330874/0001193125-26-330874-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "CRSP",
+   "title": "8-K — CRISPR Therapeutics AG: „gene editing\" erwähnt",
+   "date": "2026-08-03",
+   "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312526330644/0001193125-26-330644-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "ALSN",
+   "title": "8-K — Allison Transmission Holdings Inc: „rare earth\" erwähnt",
+   "date": "2026-08-03",
+   "url": "https://www.sec.gov/Archives/edgar/data/1411207/000119312526330544/0001193125-26-330544-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — IonQ, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-07-31",
+   "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526327127/0001193125-26-327127-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1/A — Bitwise NEAR ETF: „quantum computing\" erwähnt",
+   "date": "2026-07-31",
+   "url": "https://www.sec.gov/Archives/edgar/data/2067111/000119312526328801/0001193125-26-328801-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Dragonfly Energy Holdings Corp.: „solid-state battery\" erwähnt",
+   "date": "2026-07-31",
+   "url": "https://www.sec.gov/Archives/edgar/data/1847986/000149315226035543/0001493152-26-035543-index.htm",
+   "summary": "Der Begriff „solid-state battery\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "WT",
+   "title": "8-K — WisdomTree, Inc.: „rare earth\" erwähnt",
+   "date": "2026-07-31",
+   "url": "https://www.sec.gov/Archives/edgar/data/880631/000121465926009324/0001214659-26-009324-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — CULLEN/FROST BANKERS, INC.: „quantum computing\" erwähnt",
+   "date": "2026-07-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/39263/000003926326000045/0000039263-26-000045-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "BRVE",
+   "title": "S-1/A — Braveheart Bio, Inc.: „gene editing\" erwähnt",
+   "date": "2026-07-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/2131524/000162828026050756/0001628280-26-050756-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "ALMU",
+   "title": "8-K — Aeluma, Inc.: „photonic\" erwähnt",
+   "date": "2026-07-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/1828805/000121390026083005/0001213900-26-083005-index.htm",
+   "summary": "Der Begriff „photonic\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Lakeshore Acquisition III Corp.: „photonic\" erwähnt",
+   "date": "2026-07-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/2049248/000192998026000405/0001929980-26-000405-index.htm",
+   "summary": "Der Begriff „photonic\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "AQMS",
+   "title": "8-K — Aqua Metals, Inc.: „rare earth\" erwähnt",
+   "date": "2026-07-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/1621832/000143774926025088/0001437749-26-025088-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "HCAX",
+   "title": "S-1/A — Hall Chadwick Acquisition Corp II: „rare earth\" erwähnt",
+   "date": "2026-07-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/2130219/000182912626008117/0001829126-26-008117-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "MORN",
+   "title": "8-K — Morningstar, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1289419/000128941926000042/0001289419-26-000042-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — HeartSciences Inc.: „quantum computing\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1468492/000121390026082577/0001213900-26-082577-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "QTWO",
+   "title": "8-K — Q2 Holdings, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1410384/000141038426000051/0001410384-26-000051-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — BANC OF CALIFORNIA, INC.: „quantum computing\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1169770/000162828026050358/0001628280-26-050358-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "S-1/A — FullPAC, Inc.: „quantum computing\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/2076148/000149315226035201/0001493152-26-035201-index.htm",
+   "summary": "Der Begriff „quantum computing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "IONS",
+   "title": "8-K — IONIS PHARMACEUTICALS INC: „gene editing\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/874015/000114036126029960/0001140361-26-029960-index.htm",
+   "summary": "Der Begriff „gene editing\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": null,
+   "title": "8-K — Ramaco Resources, Inc.: „rare earth\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/1687187/000121390026082907/0001213900-26-082907-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
+  },
+  {
+   "source": "SEC Volltextsuche",
+   "tier": "public",
+   "ticker": "SWK",
+   "title": "8-K — STANLEY BLACK & DECKER, INC.: „rare earth\" erwähnt",
+   "date": "2026-07-29",
+   "url": "https://www.sec.gov/Archives/edgar/data/93556/000009355626000028/0000093556-26-000028-index.htm",
+   "summary": "Der Begriff „rare earth\" kommt im Volltext dieser Pflichtmitteilung vor. Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein Anlass zum Nachlesen, kein Befund."
   }
  ]
 }

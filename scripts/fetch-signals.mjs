@@ -21,6 +21,36 @@ const OUT = resolve(HERE, '../public/data/signals.json');
 const WATCH = ['NVDA', 'TSM', 'AMZN', 'GOOGL', 'MSFT', 'AVGO', 'INTC', 'AMD', 'MU',
                'MRVL', 'ASML', 'TSLA', 'ISRG', 'CAT', 'D', 'PLTR', 'KO', 'AAPL'];
 
+/**
+ * Technologiebegriffe für die EDGAR-Volltextsuche.
+ *
+ * Hier anpassen, wenn sich der Beobachtungsschwerpunkt ändert — das ist der
+ * einzige Ort dafür. Die Liste ist bewusst kurz gehalten: jeder Begriff kostet
+ * eine Anfrage pro Lauf, und die SEC begrenzt auf rund zehn pro Sekunde.
+ *
+ * Auswahlkriterium ist Vorlauf, nicht Trefferzahl. Gesucht wird nach Begriffen,
+ * die in einer Pflichtmitteilung auftauchen, *bevor* sie im Umsatz stehen —
+ * ein 8-K, das erstmals von einer Technologie spricht, ist früher dran als
+ * jede Quartalszahl. Zu allgemeine Begriffe ("technology", "innovation")
+ * liefern nur Rauschen und gehören nicht in diese Liste.
+ */
+const TECH_TERMS = [
+  'quantum computing',
+  'humanoid robot',
+  'solid-state battery',
+  'small modular reactor',
+  'gene editing',
+  'photonic',
+  'rare earth',
+  'autonomous vehicle',
+];
+
+/** Nur Meldungen der letzten N Tage — ältere sind für Vorlaufsignale wertlos. */
+const LOOKBACK_DAYS = 14;
+
+/** Formulararten mit Neuigkeitswert. 8-K = meldepflichtiges Ereignis, S-1 = Börsengang. */
+const FTS_FORMS = ['8-K', 'S-1'];
+
 const UA = process.env.SEC_USER_AGENT
   || 'Investmentstratege Kontakt bitte-in-env-setzen@example.com';
 
@@ -87,7 +117,85 @@ async function congress() {
 }
 
 /* ------------------------------------------------------------------ */
-/* 3. Presse-Feeds — ausschließlich Überschrift und Link               */
+/* 3. EDGAR-Volltextsuche — Technologiebegriffe in Pflichtmitteilungen */
+/* ------------------------------------------------------------------ */
+/**
+ * Durchsucht den kompletten Fließtext aller SEC-Einreichungen, nicht nur die
+ * Metadaten. Damit findet man ein Unternehmen, das eine Technologie zum ersten
+ * Mal in einer Pflichtmitteilung erwähnt — deutlich früher, als es in
+ * Umsatzzahlen sichtbar wird.
+ *
+ * Der Endpunkt efts.sec.gov ist amtlich, gemeinfrei und ohne Schlüssel
+ * nutzbar; er verlangt denselben aussagekräftigen User-Agent wie EDGAR selbst.
+ */
+async function edgarFullText() {
+  const to = new Date();
+  const from = new Date(to.getTime() - LOOKBACK_DAYS * 86400 * 1000);
+  const iso = (d) => d.toISOString().slice(0, 10);
+
+  // Ein Treffer pro Einreichung reicht: dasselbe 8-K taucht sonst einmal je
+  // Anlagedatei auf und verstopft die Liste mit Dubletten.
+  const seen = new Set();
+
+  for (const term of TECH_TERMS) {
+    const url = 'https://efts.sec.gov/LATEST/search-index'
+      + `?q=${encodeURIComponent(`"${term}"`)}`
+      + `&forms=${FTS_FORMS.join(',')}`
+      + `&dateRange=custom&startdt=${iso(from)}&enddt=${iso(to)}`;
+
+    // efts.sec.gov antwortet sporadisch mit HTTP 500, auch auf Anfragen, die
+    // Sekunden später einwandfrei durchlaufen — beobachtet bei zwei Läufen
+    // hintereinander, jeweils bei einem anderen Begriff. Ein verzögerter
+    // zweiter Versuch fängt das ab. Fehler bleiben zudem auf den einzelnen
+    // Begriff begrenzt: vorher riss ein 500 die gesamte restliche Liste mit,
+    // sodass ein Ausfall wie ein leeres Suchergebnis aussah.
+    let data = null;
+    for (let attempt = 0; attempt < 2 && data === null; attempt++) {
+      if (attempt > 0) await new Promise((r) => setTimeout(r, 1500));
+      try {
+        const res = await fetch(url, { headers: { 'User-Agent': UA } });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      } catch (e) {
+        if (attempt === 1) errors.push(`edgar-volltext "${term}": ${e.message}`);
+      }
+    }
+    if (data === null) continue;
+
+    for (const hit of data?.hits?.hits ?? []) {
+      const s = hit._source ?? {};
+      const adsh = s.adsh;
+      if (!adsh || seen.has(adsh)) continue;
+      seen.add(adsh);
+
+      const cik = (s.ciks ?? [])[0];
+      // display_names sieht aus wie "D-Wave Quantum Inc.  (QBTS)  (CIK 0001907982)"
+      const display = (s.display_names ?? [])[0] ?? 'Unbekannter Einreicher';
+      const company = display.split('  (')[0].trim();
+      const ticker = /\(([A-Z.\-]{1,6})\)\s+\(CIK/.exec(display)?.[1] ?? null;
+
+      items.push({
+        source: 'SEC Volltextsuche',
+        tier: 'public',
+        ticker,
+        title: `${s.form ?? 'Filing'} — ${company}: „${term}" erwähnt`,
+        date: s.file_date ?? null,
+        url: cik
+          ? `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${adsh.replace(/-/g, '')}/${adsh}-index.htm`
+          : null,
+        summary: `Der Begriff „${term}" kommt im Volltext dieser Pflichtmitteilung vor. `
+               + 'Die Erwähnung sagt nichts über Umfang oder Bedeutung — sie ist ein '
+               + 'Anlass zum Nachlesen, kein Befund.',
+      });
+    }
+
+    // SEC-Vorgabe: höchstens rund zehn Anfragen pro Sekunde.
+    await new Promise((r) => setTimeout(r, 200));
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Presse-Feeds — ausschließlich Überschrift und Link               */
 /* ------------------------------------------------------------------ */
 async function rss(sourceLabel, feedUrl, limit = 12) {
   const res = await fetch(feedUrl, { headers: { 'User-Agent': UA } });
@@ -129,6 +237,7 @@ async function safe(name, fn) {
 
 async function main() {
   await safe('sec-form4', secForm4);
+  await safe('edgar-volltext', edgarFullText);
   await safe('congress', congress);
   // Der Aktionär: deraktionaer.de hat den RSS-Feed abgeschaltet — /rss, /feed,
   // /rss.xml und Varianten liefern alle 404, und die Startseite enthält kein

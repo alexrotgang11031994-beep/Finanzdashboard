@@ -48,6 +48,17 @@ export const SOURCES: SourceDef[] = [
       'Amtlich, gemeinfrei, deutlich frischer als Kongressdaten.',
   },
   {
+    id: 'edgar-volltext',
+    label: 'SEC Volltextsuche — Technologiebegriffe',
+    tier: 'public',
+    enabled: true,
+    note:
+      'Durchsucht den kompletten Fließtext aller Pflichtmitteilungen (8-K, S-1), nicht nur die ' +
+      'Metadaten. Findet Unternehmen, die eine Technologie erstmals erwähnen — früher, als sie in ' +
+      'Umsatzzahlen sichtbar wird. Beobachtete Begriffe stehen in scripts/fetch-signals.mjs. ' +
+      'Eine Erwähnung sagt nichts über Umfang oder Bedeutung: sie ist ein Anlass zum Nachlesen.',
+  },
+  {
     id: 'congress',
     label: 'US-Kongress — STOCK Act',
     tier: 'licensed',
