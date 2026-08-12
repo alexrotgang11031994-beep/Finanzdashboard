@@ -363,7 +363,88 @@ async function usaSpending() {
 }
 
 /* ------------------------------------------------------------------ */
-/* 6. Presse-Feeds — ausschließlich Überschrift und Link               */
+/* 6. GitHub — wohin sich Entwickleraufmerksamkeit bewegt              */
+/* ------------------------------------------------------------------ */
+/**
+ * Neue Projekte, die in kurzer Zeit viele Sterne sammeln, zeigen, welche
+ * Technologie gerade Entwickler anzieht. Das ist kein Umsatz, aber es geht
+ * ihm regelmäßig voraus: Werkzeuge entstehen, bevor Produkte damit gebaut
+ * werden.
+ *
+ * Diese Quelle hat eine eigene, kürzere Begriffsliste — und zwar aus einem
+ * inhaltlichen Grund, nicht aus Bequemlichkeit: GitHub kennt nur Software.
+ * Der Test mit der vollen TECH_TERMS-Liste ergab für "quantum computing"
+ * 1.185 Projekte (Spitzenreiter 65 Sterne) und für "humanoid robot" 451
+ * (331 Sterne), aber für "solid-state battery" ganze zehn Projekte mit
+ * höchstens zwei Sternen. Physische Technologien hinterlassen hier keine
+ * belastbare Spur; sie mitzusuchen erzeugt nur Rauschen und verbraucht
+ * Anfragen.
+ *
+ * Zum Rate-Limit: Ohne Anmeldung erlaubt die Suche rund zehn Anfragen pro
+ * Minute, und der Test lief bereits nach vier Anfragen trotz sieben Sekunden
+ * Abstand in HTTP 403. In GitHub Actions steht GITHUB_TOKEN automatisch und
+ * kostenlos bereit und hebt das Limit auf dreißig — lokal läuft es ohne
+ * Token, dann aber mit spürbar größerem Abstand.
+ */
+const GITHUB_TERMS = ['quantum computing', 'humanoid robot', 'autonomous vehicle'];
+
+/** Unter dieser Sternzahl ist ein junges Projekt statistisch nicht von Zufall zu trennen. */
+const GITHUB_MIN_STARS = 25;
+const GITHUB_PER_TERM = 3;
+const GITHUB_LOOKBACK_DAYS = 90;
+
+async function github() {
+  const token = process.env.GITHUB_TOKEN;
+  const pause = token ? 2500 : 8000;
+  const since = new Date(Date.now() - GITHUB_LOOKBACK_DAYS * 86400 * 1000)
+    .toISOString().slice(0, 10);
+
+  const headers = {
+    'User-Agent': UA,
+    Accept: 'application/vnd.github+json',
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  };
+
+  for (const term of GITHUB_TERMS) {
+    const url = 'https://api.github.com/search/repositories'
+      + `?q=${encodeURIComponent(`"${term}" created:>${since}`)}`
+      + `&sort=stars&order=desc&per_page=${GITHUB_PER_TERM}`;
+
+    try {
+      const res = await fetch(url, { headers });
+      if (res.status === 403 || res.status === 429) {
+        throw new Error(`Rate-Limit (HTTP ${res.status})`
+          + (token ? '' : ' — ohne GITHUB_TOKEN nur rund zehn Anfragen pro Minute'));
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      for (const repo of data?.items ?? []) {
+        const stars = repo.stargazers_count ?? 0;
+        if (stars < GITHUB_MIN_STARS) continue;
+
+        items.push({
+          source: 'GitHub',
+          tier: 'public',
+          title: `${repo.full_name} — ${stars} Sterne seit ${String(repo.created_at).slice(0, 10)} („${term}")`,
+          url: repo.html_url,
+          date: String(repo.created_at ?? '').slice(0, 10),
+          summary: (repo.description ? `${String(repo.description).slice(0, 200)} ` : '')
+                 + 'Entwickleraufmerksamkeit, kein Umsatz. Ein Projekt kann von einem '
+                 + 'Unternehmen, einer Hochschule oder einer Einzelperson stammen — die '
+                 + 'Sternzahl sagt darüber nichts.',
+        });
+      }
+    } catch (e) {
+      errors.push(`github "${term}": ${e.message}`);
+    }
+
+    await new Promise((r) => setTimeout(r, pause));
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. Presse-Feeds — ausschließlich Überschrift und Link               */
 /* ------------------------------------------------------------------ */
 async function rss(sourceLabel, feedUrl, limit = 12) {
   const res = await fetch(feedUrl, { headers: { 'User-Agent': UA } });
@@ -408,6 +489,7 @@ async function main() {
   await safe('edgar-volltext', edgarFullText);
   await safe('arxiv', arxiv);
   await safe('usaspending', usaSpending);
+  await safe('github', github);
   await safe('congress', congress);
   // Der Aktionär: deraktionaer.de hat den RSS-Feed abgeschaltet — /rss, /feed,
   // /rss.xml und Varianten liefern alle 404, und die Startseite enthält kein

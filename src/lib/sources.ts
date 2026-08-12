@@ -83,6 +83,19 @@ export const SOURCES: SourceDef[] = [
       'nicht börsennotiert oder Tochtergesellschaften.',
   },
   {
+    id: 'github',
+    label: 'GitHub — Entwickleraufmerksamkeit',
+    tier: 'public',
+    enabled: true,
+    note:
+      'Neue Projekte, die schnell viele Sterne sammeln, zeigen, welche Technologie gerade ' +
+      'Entwickler anzieht — Werkzeuge entstehen, bevor Produkte damit gebaut werden. Eigene, ' +
+      'kürzere Begriffsliste als die übrigen Quellen: GitHub kennt nur Software. Physische ' +
+      'Technologien wie Feststoffbatterien hinterlassen hier keine belastbare Spur. Projekte ' +
+      'unter 25 Sternen werden ausgefiltert. Ein Projekt kann von einem Unternehmen, einer ' +
+      'Hochschule oder einer Einzelperson stammen — die Sternzahl sagt darüber nichts.',
+  },
+  {
     id: 'congress',
     label: 'US-Kongress — STOCK Act',
     tier: 'licensed',

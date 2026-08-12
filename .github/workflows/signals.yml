@@ -23,6 +23,11 @@ jobs:
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
           QUIVER_API_KEY: ${{ secrets.QUIVER_API_KEY }}
+          # Kein Secret noetig: Actions stellt GITHUB_TOKEN automatisch bereit.
+          # Hebt das Limit der GitHub-Suche von rund zehn auf dreissig Anfragen
+          # pro Minute — ohne Token lief der Abruf im Test schon nach vier
+          # Anfragen in HTTP 403, trotz sieben Sekunden Abstand.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/fetch-signals.mjs
 
       - name: Aenderungen committen
