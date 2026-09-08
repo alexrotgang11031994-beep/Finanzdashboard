@@ -1,4 +1,4 @@
-# Investmentstratege
+# Finanzdashboard
 
 Portfolio-Dashboard mit Bestand, Sparplänen, Wertentwicklung und einem
 Signal-Feed aus gekennzeichneten Fremdquellen.
@@ -15,12 +15,12 @@ Betrieb und lässt sich als White-Label an Kunden ausliefern.
 #    https://github.com/new
 
 # 2. Lokal verbinden und hochladen
-cd investmentstratege
+cd finanzdashboard
 git init
 git add .
 git commit -m "Initialer Stand"
 git branch -M main
-git remote add origin git@github.com:DEIN-NAME/investmentstratege.git
+git remote add origin git@github.com:DEIN-NAME/Finanzdashboard.git
 git push -u origin main
 
 # 3. Auf GitHub: Settings → Pages → Source: "GitHub Actions"
@@ -28,7 +28,7 @@ git push -u origin main
 ```
 
 Nach etwa einer Minute liegt die Seite unter
-`https://DEIN-NAME.github.io/investmentstratege/`.
+`https://DEIN-NAME.github.io/Finanzdashboard/`.
 
 **Wichtig:** Auf `main` liegen deine echten Depotdaten. Solange das Repo
 öffentlich ist, sind sie es auch. Für den Eigengebrauch: privates Repo plus

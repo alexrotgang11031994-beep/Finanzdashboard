@@ -1,11 +1,11 @@
 {
-  "name": "investmentstratege",
+  "name": "finanzdashboard",
   "version": "1.0.0",
-  "description": "Investmentstratege - Portfolio, Sparplaene und Signalquellen. Statisch, ohne Build-Schritt.",
+  "description": "Finanzdashboard - Portfolio, Sparpläne und Signalquellen in einer Ansicht. Statisch, ohne Build-Schritt.",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "python3 -m http.server 8080",
+    "dev": "npx http-server -p 8080 -c-1 -o",
     "signals": "node scripts/fetch-signals.mjs",
     "check": "node --check src/app.js && node --check scripts/fetch-signals.mjs"
   },
